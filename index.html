@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#EEF1EA" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E1712" media="(prefers-color-scheme: dark)">
+  <title>Lote Colombia</title>
+  <meta name="description" content="Guía del café colombiano de origen: regiones, variedades, proceso y calculadora de preparación. Guide to Colombian single-origin coffee.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+/* Se ejecuta antes de pintar el contenido para evitar un parpadeo de idioma */
+(function () {
+  var lang = 'es';
+  try {
+    var saved = localStorage.getItem('lote-lang');
+    if (saved === 'en' || saved === 'es') { lang = saved; }
+    else if (/^en/i.test(navigator.language || '')) { lang = 'en'; }
+  } catch (e) {
+    if (/^en/i.test(navigator.language || '')) { lang = 'en'; }
+  }
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('lang', lang);
+})();
+  </script>
+</head>
+<body>
+<div class="top-bar">
+  <div class="wrap top">
+    <a class="brand" href="#inicio">Lote <span>Colombia</span></a>
+    <nav data-label-es="Secciones" data-label-en="Sections" aria-label="Secciones">
+      <ul>
+        <li><a href="#regiones"><span lang="es">Regiones</span><span lang="en">Regions</span></a></li>
+        <li><a href="#variedades"><span lang="es">Variedades</span><span lang="en">Varieties</span></a></li>
+        <li><a href="#proceso"><span lang="es">Proceso</span><span lang="en">Process</span></a></li>
+        <li><a href="#preparar"><span lang="es">Preparar</span><span lang="en">Brew</span></a></li>
+      </ul>
+    </nav>
+    <div class="lang" role="group" data-label-es="Idioma" data-label-en="Language" aria-label="Idioma">
+      <button type="button" data-set-lang="es" aria-label="Español" aria-pressed="true">ES</button>
+      <button type="button" data-set-lang="en" aria-label="English" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</div>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow"><span lang="es">Guía del café colombiano de origen</span><span lang="en">Guide to Colombian single-origin coffee</span></p>
+        <h1>
+          <span lang="es">Café de montaña, <em>lote por lote.</em></span>
+          <span lang="en">Mountain coffee, <em>lot by lot.</em></span>
+        </h1>
+        <p class="hero-text">
+          <span lang="es">Colombia cultiva solo arábica, en laderas de los Andes y casi siempre en fincas familiares pequeñas. Aquí están las regiones, las variedades y el proceso que explican cada taza, con una calculadora para prepararla bien.</span>
+          <span lang="en">Colombia grows only arabica, on Andean slopes and almost always on small family farms. Here are the regions, varieties and processing steps behind every cup, plus a calculator to help you brew it well.</span>
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#regiones"><span lang="es">Explorar regiones</span><span lang="en">Explore regions</span></a>
+          <a class="link-quiet" href="#preparar"><span lang="es">Calcular mi receta</span><span lang="en">Calculate my recipe</span></a>
+        </div>
+      </div>
+      <aside class="tag" data-label-es="Marca de saco de exportación" data-label-en="Export sack mark" aria-label="Marca de saco de exportación">
+        <div class="tag-big">Colombia</div>
+        <dl>
+          <dt><span lang="es">Producto</span><span lang="en">Product</span></dt>
+          <dd><span lang="es">Café verde arábica</span><span lang="en">Green arabica coffee</span></dd>
+          <dt><span lang="es">Calidad</span><span lang="en">Grade</span></dt>
+          <dd>Supremo / Excelso</dd>
+          <dt><span lang="es">Saco</span><span lang="en">Bag</span></dt>
+          <dd><span lang="es">70 kg netos</span><span lang="en">70 kg net</span></dd>
+          <dt><span lang="es">Altura</span><span lang="en">Altitude</span></dt>
+          <dd><span lang="es">1.200–2.300 m</span><span lang="en">1,200–2,300 m</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <section class="block" id="regiones">
+    <div class="wrap">
+      <p class="eyebrow"><span lang="es">Dónde se cultiva</span><span lang="en">Where it grows</span></p>
+      <h2><span lang="es">Ocho regiones, ocho tazas</span><span lang="en">Eight regions, eight cups</span></h2>
+      <p class="lede">
+        <span lang="es">Cada barra muestra la altura típica de cultivo sobre una escala común de 800 a 2.400 m sobre el nivel del mar. A más altura el grano madura más despacio y suele dar más acidez y dulzor. Los valores son aproximados y cambian de finca en finca.</span>
+        <span lang="en">Each bar shows the typical growing altitude on a shared scale from 800 to 2,400 m above sea level. At higher altitude the bean ripens more slowly and tends to give more acidity and sweetness. Values are approximate and vary from farm to farm.</span>
+      </p>
+
+      <div class="filters" role="group" data-label-es="Filtrar por nota de sabor" data-label-en="Filter by flavor note" aria-label="Filtrar por nota de sabor">
+        <button class="chip" type="button" data-tag="todas" aria-pressed="true"><span lang="es">Todas</span><span lang="en">All</span></button>
+        <button class="chip" type="button" data-tag="dulce" aria-pressed="false"><span lang="es">Dulce</span><span lang="en">Sweet</span></button>
+        <button class="chip" type="button" data-tag="frutal" aria-pressed="false"><span lang="es">Frutal</span><span lang="en">Fruity</span></button>
+        <button class="chip" type="button" data-tag="citrico" aria-pressed="false"><span lang="es">Cítrico</span><span lang="en">Citrus</span></button>
+        <button class="chip" type="button" data-tag="floral" aria-pressed="false">Floral</button>
+        <button class="chip" type="button" data-tag="chocolate" aria-pressed="false">Chocolate</button>
+      </div>
+      <p class="count" id="count" aria-live="polite">Mostrando 8 de 8 regiones</p>
+
+      <ul class="regions">
+        <li class="region" data-notes="dulce frutal floral">
+          <div>
+            <h3>Huila</h3>
+            <span class="dept"><span lang="es">Sur andino</span><span lang="en">Southern Andes</span></span>
+          </div>
+          <div class="alt">
+            <div class="alt-head">
+              <span><span lang="es">Altura típica</span><span lang="en">Typical altitude</span></span>
+              <b><span lang="es">1.200–2.000 m</span><span lang="en">1,200–2,000 m</span></b>
+            </div>
+            <div class="alt-track" style="--a:25;--b:75"><i></i></div>
+            <div class="alt-scale"><span>800</span><span><span lang="es">2.400</span><span lang="en">2,400</span></span></div>
+          </div>
+          <p class="desc">
+            <span lang="es">Uno de los departamentos que más café produce. Taza dulce, con caramelo y fruta roja, y acidez media a alta.</span>
+            <span lang="en">One of the departments that produces the most coffee. A sweet cup with caramel and red fruit, and medium to high acidity.</span>
+          </p>
+          <ul class="notes">
+            <li><span lang="es">Caramelo</span><span lang="en">Caramel</span></li>
+            <li><span lang="es">Frutos rojos</span><span lang="en">Red fruit</span></li>
+            <li>Floral</li>
+          </ul>
+        </li>
+
+        <li class="region" data-notes="citrico dulce floral">
+          <div>
+            <h3>Nariño</h3>
+            <span class="dept"><span lang="es">Frontera con Ecuador</span><span lang="en">Ecuador border</span></span>
+          </div>
+          <div class="alt">
+            <div class="alt-head">
+              <span><span lang="es">Altura típica</span><span lang="en">Typical altitude</span></span>
+              <b><span lang="es">1.500–2.300 m</span><span lang="en">1,500–2,300 m</span></b>
+            </div>
+            <div class="alt-track" style="--a:43.75;--b:93.75"><i></i></div>
+            <div class="alt-scale"><span>800</span><span><span lang="es">2.400</span><span lang="en">2,400</span></span></div>
+          </div>
+          <p class="desc">
+            <span lang="es">Cultivos en laderas a gran altura, cerca del ecuador. Acidez brillante y dulzor limpio, con recuerdos de panela y cítricos.</span>
+            <span lang="en">Slope plantations at high altitude, close to the equator. Bright acidity and clean sweetness, with hints of panela and citrus.</span>
+          </p>
+          <ul class="notes">
+            <li>Panela</li>
+            <li><span lang="es">Cítricos</span><span lang="en">Citrus</span></li>
+            <li>Floral</li>
+          </ul>
+        </li>
+
+        <li class="region" data-notes="citrico floral dulce">
+          <div>
+            <h3>Cauca</h3>
+            <span class="dept"><span lang="es">Alrededores de Popayán</span><span lang="en">Around Popayán</span></span>
+          </div>
+          <div class="alt">
+            <div class="alt-head">
+              <span><span lang="es">Altura típica</span><span lang="en">Typical altitude</span></span>
+              <b><span lang="es">1.500–2.200 m</span><span lang="en">1,500–2,200 m</span></b>
+            </div>
+            <div class="alt-track" style="--a:43.75;--b:87.5"><i></i></div>
+            <div class="alt-scale"><span>800</span><span><span lang="es">2.400</span><span lang="en">2,400</span></span></div>
+          </div>
+          <p class="desc">
+            <span lang="es">Fincas familiares en las montañas del suroccidente. Taza limpia, con cítricos, flores y un dulzor suave.</span>
+            <span lang="en">Family farms in the mountains of the southwest. A clean cup with citrus, flowers and gentle sweetness.</span>
+          </p>
+          <ul class="notes">
+            <li><span lang="es">Cítricos</span><span lang="en">Citrus</span></li>
+            <li>Floral</li>
+            <li><span lang="es">Miel</span><span lang="en">Honey</span></li>
+          </ul>
+        </li>
+
+        <li class="region" data-notes="frutal citrico chocolate">
+          <div>
+            <h3>Tolima</h3>
+            <span class="dept"><span lang="es">Planadas y el sur</span><span lang="en">Planadas and the south</span></span>
+          </div>
+          <div class="alt">
+            <div class="alt-head">
+              <span><span lang="es">Altura típica</span><span lang="en">Typical altitude</span></span>
+              <b><span lang="es">1.200–2.100 m</span><span lang="en">1,200–2,100 m</span></b>
+            </div>
+            <div class="alt-track" style="--a:25;--b:81.25"><i></i></div>
+            <div class="alt-scale"><span>800</span><span><span lang="es">2.400</span><span lang="en">2,400</span></span></div>
+          </div>
+          <p class="desc">
+            <span lang="es">El sur del departamento, con Planadas como municipio cafetero destacado. Taza frutal, con cítricos y toques de chocolate.</span>
+            <span lang="en">The south of the department, with Planadas as a standout coffee town. A fruity cup with citrus and hints of chocolate.</span>
+          </p>
+          <ul class="notes">
+            <li><span lang="es">Fruta</span><span lang="en">Fruit</span></li>
+            <li><span lang="es">Cítricos</span><span lang="en">Citrus</span></li>
+            <li>Chocolate</li>
+          </ul>
+        </li>
+
+        <li class="region" data-notes="chocolate dulce">
+          <div>
+            <h3>Antioquia</h3>
+            <span class="dept"><span lang="es">Suroeste y oriente</span><span lang="en">Southwest and east</span></span>
+          </div>
+          <div class="alt">
+            <div class="alt-head">
+              <span><span lang="es">Altura típica</span><span lang="en">Typical altitude</span></span>
+              <b><span lang="es">1.300–2.000 m</span><span lang="en">1,300–2,000 m</span></b>
+            </div>
+            <div class="alt-track" style="--a:31.25;--b:75"><i></i></div>
+            <div class="alt-scale"><span>800</span><span><span lang="es">2.400</span><span lang="en">2,400</span></span></div>
+          </div>
+          <p class="desc">
+            <span lang="es">Tazas de cuerpo medio a alto y acidez moderada. Chocolate, nueces y caramelo definen el perfil.</span>
+            <span lang="en">Cups with medium to high body and moderate acidity. Chocolate, nuts and caramel define the profile.</span>
+          </p>
+          <ul class="notes">
+            <li>Chocolate</li>
+            <li><span lang="es">Nueces</span><span lang="en">Nuts</span></li>
+            <li><span lang="es">Caramelo</span><span lang="en">Caramel</span></li>
+          </ul>
+        </li>
+
+        <li class="region" data-notes="chocolate dulce">
+          <div>
+            <h3><span lang="es">Eje Cafetero</span><span lang="en">Coffee Axis</span></h3>
+            <span class="dept">Caldas · Quindío · Risaralda</span>
+          </div>
+          <div class="alt">
+            <div class="alt-head">
+              <span><span lang="es">Altura típica</span><span lang="en">Typical altitude</span></span>
+              <b><span lang="es">1.200–1.800 m</span><span lang="en">1,200–1,800 m</span></b>
+            </div>
+            <div class="alt-track" style="--a:25;--b:62.5"><i></i></div>
+            <div class="alt-scale"><span>800</span><span><span lang="es">2.400</span><span lang="en">2,400</span></span></div>
+          </div>
+          <p class="desc">
+            <span lang="es">El Paisaje Cultural Cafetero es Patrimonio Mundial de la UNESCO desde 2011. Taza clásica y equilibrada.</span>
+            <span lang="en">The Coffee Cultural Landscape has been a UNESCO World Heritage Site since 2011. A classic, balanced cup.</span>
+          </p>
+          <ul class="notes">
+            <li><span lang="es">Caramelo</span><span lang="en">Caramel</span></li>
+            <li>Chocolate</li>
+            <li><span lang="es">Equilibrado</span><span lang="en">Balanced</span></li>
+          </ul>
+        </li>
+
+        <li class="region" data-notes="chocolate dulce">
+          <div>
+            <h3>Santander</h3>
+            <span class="dept"><span lang="es">Cordillera Oriental</span><span lang="en">Eastern Cordillera</span></span>
+          </div>
+          <div class="alt">
+            <div class="alt-head">
+              <span><span lang="es">Altura típica</span><span lang="en">Typical altitude</span></span>
+              <b><span lang="es">1.200–1.900 m</span><span lang="en">1,200–1,900 m</span></b>
+            </div>
+            <div class="alt-track" style="--a:25;--b:68.75"><i></i></div>
+            <div class="alt-scale"><span>800</span><span><span lang="es">2.400</span><span lang="en">2,400</span></span></div>
+          </div>
+          <p class="desc">
+            <span lang="es">Zona de larga tradición cafetera. Tazas de cuerpo pronunciado, con dulzor a cacao y panela.</span>
+            <span lang="en">A region with a long coffee tradition. Full-bodied cups with cocoa and panela sweetness.</span>
+          </p>
+          <ul class="notes">
+            <li><span lang="es">Cacao</span><span lang="en">Cocoa</span></li>
+            <li>Panela</li>
+            <li><span lang="es">Cuerpo</span><span lang="en">Body</span></li>
+          </ul>
+        </li>
+
+        <li class="region" data-notes="dulce chocolate">
+          <div>
+            <h3>Sierra Nevada</h3>
+            <span class="dept">Magdalena · La Guajira · Cesar</span>
+          </div>
+          <div class="alt">
+            <div class="alt-head">
+              <span><span lang="es">Altura típica</span><span lang="en">Typical altitude</span></span>
+              <b><span lang="es">900–1.800 m</span><span lang="en">900–1,800 m</span></b>
+            </div>
+            <div class="alt-track" style="--a:6.25;--b:62.5"><i></i></div>
+            <div class="alt-scale"><span>800</span><span><span lang="es">2.400</span><span lang="en">2,400</span></span></div>
+          </div>
+          <p class="desc">
+            <span lang="es">Cafetales en las laderas de Santa Marta, trabajados en buena parte por comunidades arhuaca, kogui y wiwa. Con frecuencia es orgánico, de taza suave y dulce.</span>
+            <span lang="en">Coffee farms on the slopes of Santa Marta, largely worked by Arhuaco, Kogui and Wiwa communities. Often organic, with a soft, sweet cup.</span>
+          </p>
+          <ul class="notes">
+            <li><span lang="es">Cacao</span><span lang="en">Cocoa</span></li>
+            <li><span lang="es">Fruta madura</span><span lang="en">Ripe fruit</span></li>
+            <li><span lang="es">Suave</span><span lang="en">Soft</span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="variedades">
+    <div class="wrap">
+      <p class="eyebrow"><span lang="es">Qué planta da la taza</span><span lang="en">Which plant makes the cup</span></p>
+      <h2><span lang="es">Variedades</span><span lang="en">Varieties</span></h2>
+      <p class="lede">
+        <span lang="es">La roya del cafeto es un hongo que ataca las hojas. Tras la epidemia de 2008 a 2011, muchas fincas colombianas renovaron sus cafetales con variedades resistentes desarrolladas por Cenicafé, el centro de investigación de los cafeteros.</span>
+        <span lang="en">Coffee leaf rust is a fungus that attacks the leaves. After the 2008 to 2011 epidemic, many Colombian farms replanted with resistant varieties developed by Cenicafé, the coffee growers' research center.</span>
+      </p>
+
+      <div class="table-wrap" tabindex="0" role="region" data-label-es="Tabla de variedades" data-label-en="Varieties table" aria-label="Tabla de variedades">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col"><span lang="es">Variedad</span><span lang="en">Variety</span></th>
+              <th scope="col"><span lang="es">Origen</span><span lang="en">Origin</span></th>
+              <th scope="col"><span lang="es">Roya</span><span lang="en">Rust</span></th>
+              <th scope="col"><span lang="es">En taza</span><span lang="en">In the cup</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span lang="es">Típica</span><span lang="en">Typica</span></th>
+              <td>
+                <span class="cell-label"><span lang="es">Origen</span><span lang="en">Origin</span></span>
+                <span lang="es">Linaje tradicional de porte alto, de las primeras que se sembraron en el país.</span>
+                <span lang="en">Traditional tall-growing lineage, among the first planted in the country.</span>
+              </td>
+              <td>
+                <span class="cell-label"><span lang="es">Roya</span><span lang="en">Rust</span></span><span class="pill warn"><span lang="es">Susceptible</span><span lang="en">Susceptible</span></span></td>
+              <td>
+                <span class="cell-label"><span lang="es">En taza</span><span lang="en">In the cup</span></span>
+                <span lang="es">Dulce, limpia y de acidez delicada. Rinde poco.</span>
+                <span lang="en">Sweet, clean, with delicate acidity. Low yield.</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><span lang="es">Borbón</span><span lang="en">Bourbon</span></th>
+              <td>
+                <span class="cell-label"><span lang="es">Origen</span><span lang="en">Origin</span></span>
+                <span lang="es">Variedad tradicional, con origen en la isla de Borbón, hoy Reunión.</span>
+                <span lang="en">Traditional variety, originating on Bourbon Island, now Réunion.</span>
+              </td>
+              <td>
+                <span class="cell-label"><span lang="es">Roya</span><span lang="en">Rust</span></span><span class="pill warn"><span lang="es">Susceptible</span><span lang="en">Susceptible</span></span></td>
+              <td>
+                <span class="cell-label"><span lang="es">En taza</span><span lang="en">In the cup</span></span>
+                <span lang="es">Dulce y redonda, de acidez media.</span>
+                <span lang="en">Sweet and round, with medium acidity.</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Caturra</th>
+              <td>
+                <span class="cell-label"><span lang="es">Origen</span><span lang="en">Origin</span></span>
+                <span lang="es">Mutación natural del Borbón hallada en Brasil. Porte bajo.</span>
+                <span lang="en">Natural mutation of Bourbon found in Brazil. Short stature.</span>
+              </td>
+              <td>
+                <span class="cell-label"><span lang="es">Roya</span><span lang="en">Rust</span></span><span class="pill warn"><span lang="es">Susceptible</span><span lang="en">Susceptible</span></span></td>
+              <td>
+                <span class="cell-label"><span lang="es">En taza</span><span lang="en">In the cup</span></span>
+                <span lang="es">Acidez brillante y taza viva. Muy productiva.</span>
+                <span lang="en">Bright acidity and a lively cup. Very productive.</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Colombia</th>
+              <td>
+                <span class="cell-label"><span lang="es">Origen</span><span lang="en">Origin</span></span>
+                <span lang="es">Cenicafé, 1982. Cruce de Caturra con Híbrido de Timor.</span>
+                <span lang="en">Cenicafé, 1982. Cross of Caturra and Timor Hybrid.</span>
+              </td>
+              <td>
+                <span class="cell-label"><span lang="es">Roya</span><span lang="en">Rust</span></span><span class="pill ok"><span lang="es">Resistente</span><span lang="en">Resistant</span></span></td>
+              <td>
+                <span class="cell-label"><span lang="es">En taza</span><span lang="en">In the cup</span></span>
+                <span lang="es">Equilibrada, de cuerpo medio.</span>
+                <span lang="en">Balanced, medium body.</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Tabi</th>
+              <td>
+                <span class="cell-label"><span lang="es">Origen</span><span lang="en">Origin</span></span>
+                <span lang="es">Cenicafé, 2002. Típica, Borbón e Híbrido de Timor. Porte alto.</span>
+                <span lang="en">Cenicafé, 2002. Typica, Bourbon and Timor Hybrid. Tall-growing.</span>
+              </td>
+              <td>
+                <span class="cell-label"><span lang="es">Roya</span><span lang="en">Rust</span></span><span class="pill ok"><span lang="es">Resistente</span><span lang="en">Resistant</span></span></td>
+              <td>
+                <span class="cell-label"><span lang="es">En taza</span><span lang="en">In the cup</span></span>
+                <span lang="es">Dulce y aromática, con notas florales y de fruta.</span>
+                <span lang="en">Sweet and aromatic, with floral and fruity notes.</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Castillo</th>
+              <td>
+                <span class="cell-label"><span lang="es">Origen</span><span lang="en">Origin</span></span>
+                <span lang="es">Cenicafé, 2005. Cruce de Caturra con Híbrido de Timor, con versiones regionales.</span>
+                <span lang="en">Cenicafé, 2005. Cross of Caturra and Timor Hybrid, with regional versions.</span>
+              </td>
+              <td>
+                <span class="cell-label"><span lang="es">Roya</span><span lang="en">Rust</span></span><span class="pill ok"><span lang="es">Resistente</span><span lang="en">Resistant</span></span></td>
+              <td>
+                <span class="cell-label"><span lang="es">En taza</span><span lang="en">In the cup</span></span>
+                <span lang="es">Equilibrada, con dulzor y cuerpo medio.</span>
+                <span lang="en">Balanced, with sweetness and medium body.</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Cenicafé 1</th>
+              <td>
+                <span class="cell-label"><span lang="es">Origen</span><span lang="en">Origin</span></span>
+                <span lang="es">Cenicafé, 2016. Pensada para productividad y resistencia.</span>
+                <span lang="en">Cenicafé, 2016. Designed for productivity and resistance.</span>
+              </td>
+              <td>
+                <span class="cell-label"><span lang="es">Roya</span><span lang="en">Rust</span></span><span class="pill ok"><span lang="es">Resistente</span><span lang="en">Resistant</span></span></td>
+              <td>
+                <span class="cell-label"><span lang="es">En taza</span><span lang="en">In the cup</span></span>
+                <span lang="es">Taza limpia, con dulzor.</span>
+                <span lang="en">Clean cup, with sweetness.</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">
+        <span lang="es">Geisha y otras variedades de especialidad se siembran en lotes pequeños. Dan tazas florales y delicadas, con notas de jazmín y bergamota.</span>
+        <span lang="en">Geisha and other specialty varieties are planted in small lots. They give floral, delicate cups with notes of jasmine and bergamot.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="block" id="proceso">
+    <div class="wrap">
+      <p class="eyebrow"><span lang="es">De la cereza al saco</span><span lang="en">From cherry to sack</span></p>
+      <h2><span lang="es">Proceso</span><span lang="en">Process</span></h2>
+      <p class="lede">
+        <span lang="es">Colombia cosecha café durante casi todo el año, porque cada región tiene su propio calendario de floración. Estos son los pasos del beneficio húmedo, el más usado en el país.</span>
+        <span lang="en">Colombia harvests coffee almost all year round, because each region has its own flowering calendar. These are the steps of wet processing, the most widely used in the country.</span>
+      </p>
+
+      <ol class="steps">
+        <li>
+          <h3><span lang="es">Recolección selectiva</span><span lang="en">Selective picking</span></h3>
+          <p>
+            <span lang="es">Se cortan a mano solo las cerezas rojas. En una misma rama maduran en días distintos, así que se pasa varias veces.</span>
+            <span lang="en">Only the red cherries are cut by hand. Cherries on one branch ripen on different days, so pickers pass several times.</span>
+          </p>
+        </li>
+        <li>
+          <h3><span lang="es">Despulpado</span><span lang="en">Pulping</span></h3>
+          <p>
+            <span lang="es">Se retira la cáscara y queda el grano cubierto de mucílago, una capa pegajosa y dulce.</span>
+            <span lang="en">The skin is removed, leaving the bean covered in mucilage, a sticky, sweet layer.</span>
+          </p>
+        </li>
+        <li>
+          <h3><span lang="es">Fermentación</span><span lang="en">Fermentation</span></h3>
+          <p>
+            <span lang="es">El mucílago se degrada en tanque durante 12 a 24 horas aproximadamente, según el clima y la altura.</span>
+            <span lang="en">The mucilage breaks down in a tank for roughly 12 to 24 hours, depending on climate and altitude.</span>
+          </p>
+        </li>
+        <li>
+          <h3><span lang="es">Lavado</span><span lang="en">Washing</span></h3>
+          <p>
+            <span lang="es">Agua limpia retira los restos de mucílago y deja el grano listo para secar.</span>
+            <span lang="en">Clean water removes the remaining mucilage and leaves the bean ready to dry.</span>
+          </p>
+        </li>
+        <li>
+          <h3><span lang="es">Secado</span><span lang="en">Drying</span></h3>
+          <p>
+            <span lang="es">Al sol o en secadores mecánicos, hasta una humedad de 10 a 12 %. El grano queda dentro del pergamino.</span>
+            <span lang="en">In the sun or in mechanical dryers, until humidity reaches 10 to 12%. The bean stays inside its parchment.</span>
+          </p>
+        </li>
+        <li>
+          <h3><span lang="es">Trilla</span><span lang="en">Milling</span></h3>
+          <p>
+            <span lang="es">Se retira el pergamino y aparece el grano verde, el que se exporta.</span>
+            <span lang="en">The parchment is removed and the green bean appears, the one that gets exported.</span>
+          </p>
+        </li>
+        <li>
+          <h3><span lang="es">Clasificación</span><span lang="en">Grading</span></h3>
+          <p>
+            <span lang="es">Se separa por tamaño. Supremo es criba 17 o mayor, y Excelso va de criba 14 a 16. También se descartan los defectos.</span>
+            <span lang="en">Beans are sorted by size. Supremo is screen 17 or larger, and Excelso runs from screen 14 to 16. Defects are also removed.</span>
+          </p>
+        </li>
+        <li>
+          <h3><span lang="es">Tostión</span><span lang="en">Roasting</span></h3>
+          <p>
+            <span lang="es">Un tueste claro resalta acidez y notas florales. Uno más oscuro da cuerpo y sabor a chocolate.</span>
+            <span lang="en">A light roast brings out acidity and floral notes. A darker one gives body and chocolate flavor.</span>
+          </p>
+        </li>
+      </ol>
+
+      <h3 class="sub"><span lang="es">Tres procesos, tres sabores</span><span lang="en">Three processes, three flavors</span></h3>
+      <div class="methods">
+        <div class="method">
+          <h4><span lang="es">Lavado</span><span lang="en">Washed</span></h4>
+          <p>
+            <span lang="es">El más habitual en Colombia. Da una taza limpia, con acidez nítida y notas claras de la variedad y la altura.</span>
+            <span lang="en">The most common in Colombia. It gives a clean cup with crisp acidity and clear notes of the variety and altitude.</span>
+          </p>
+        </div>
+        <div class="method">
+          <h4>Honey</h4>
+          <p>
+            <span lang="es">Parte del mucílago se seca junto al grano. Gana dulzor y cuerpo, con una acidez más redonda.</span>
+            <span lang="en">Part of the mucilage dries with the bean. It gains sweetness and body, with a rounder acidity.</span>
+          </p>
+        </div>
+        <div class="method">
+          <h4>Natural</h4>
+          <p>
+            <span lang="es">La cereza se seca entera. La taza es más frutal e intensa, con un carácter menos limpio y más expresivo.</span>
+            <span lang="en">The cherry dries whole. The cup is fruitier and more intense, with a less clean, more expressive character.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="preparar">
+    <div class="wrap">
+      <p class="eyebrow"><span lang="es">De grano a taza</span><span lang="en">From bean to cup</span></p>
+      <h2><span lang="es">Preparar</span><span lang="en">Brew</span></h2>
+      <p class="lede">
+        <span lang="es">Elige un método y la cantidad de agua. La calculadora te da los gramos de café, la temperatura y el tiempo de partida. Ajusta después según tu gusto.</span>
+        <span lang="en">Choose a method and an amount of water. The calculator gives you grams of coffee, temperature and time as a starting point. Adjust to taste afterwards.</span>
+      </p>
+
+      <div class="calc">
+        <div class="panel">
+          <div class="field">
+            <label for="method"><span lang="es">Método</span><span lang="en">Method</span></label>
+            <select id="method">
+              <option value="v60" data-es="V60 / filtro de papel" data-en="V60 / paper filter">V60 / filtro de papel</option>
+              <option value="chemex" data-es="Chemex" data-en="Chemex">Chemex</option>
+              <option value="prensa" data-es="Prensa francesa" data-en="French press">Prensa francesa</option>
+              <option value="aeropress" data-es="Aeropress" data-en="AeroPress">Aeropress</option>
+              <option value="moka" data-es="Moka italiana" data-en="Moka pot">Moka italiana</option>
+              <option value="espresso" data-es="Espresso" data-en="Espresso">Espresso</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="amount" id="amountLabel">Agua (ml)</label>
+            <input id="amount" type="number" inputmode="decimal" min="1" max="2000" step="5" value="300">
+          </div>
+        </div>
+
+        <div class="panel out" aria-live="polite">
+          <p class="out-label"><span lang="es">Café molido</span><span lang="en">Ground coffee</span></p>
+          <p class="out-big" id="outCoffee">18,8 g</p>
+          <dl>
+            <dt><span lang="es">Proporción</span><span lang="en">Ratio</span></dt><dd id="outRatio">1:16</dd>
+            <dt><span lang="es">Temperatura</span><span lang="en">Temperature</span></dt><dd id="outTemp">92–96 °C</dd>
+            <dt><span lang="es">Tiempo</span><span lang="en">Time</span></dt><dd id="outTime">2:30–3:00</dd>
+            <dt><span lang="es">Molienda</span><span lang="en">Grind</span></dt><dd id="outGrind">Media-fina</dd>
+            <dt class="extra" hidden><span lang="es">Presión</span><span lang="en">Pressure</span></dt><dd class="extra" id="outPressure" hidden></dd>
+            <dt class="extra" hidden><span lang="es">Calor</span><span lang="en">Heat</span></dt><dd class="extra" id="outHeat" hidden></dd>
+            <dt class="extra" hidden><span lang="es">Tueste</span><span lang="en">Roast</span></dt><dd class="extra" id="outRoast" hidden></dd>
+            <dt class="extra" hidden><span lang="es">Agua inicial</span><span lang="en">Starting water</span></dt><dd class="extra" id="outStart" hidden></dd>
+          </dl>
+          <p class="tip" id="outTip">Prueba un Nariño o un Cauca: la acidez cítrica se luce con el filtro de papel.</p>
+          <div class="howto" id="howto" hidden>
+            <p class="out-label"><span lang="es">Paso a paso</span><span lang="en">Step by step</span></p>
+            <ol class="how" id="outSteps"></ol>
+            <p class="how-note" id="outNote"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="#inicio">Lote <span>Colombia</span></a>
+    <p>
+      <span lang="es">Guía independiente sobre el café colombiano de origen. Las alturas, los calendarios y las notas de cata son valores típicos y aproximados. Cada finca y cada cosecha varían.</span>
+      <span lang="en">Independent guide to Colombian single-origin coffee. Altitudes, calendars and tasting notes are typical, approximate values. Every farm and every harvest differs.</span>
+    </p>
+    <p>
+      <span lang="es">Para datos oficiales y técnicos, consulta <a href="https://www.cenicafe.org" target="_blank" rel="noopener">Cenicafé</a> y la <a href="https://federaciondecafeteros.org" target="_blank" rel="noopener">Federación Nacional de Cafeteros</a>.</span>
+      <span lang="en">For official and technical data, see <a href="https://www.cenicafe.org" target="_blank" rel="noopener">Cenicafé</a> and the <a href="https://federaciondecafeteros.org" target="_blank" rel="noopener">National Federation of Coffee Growers</a>.</span>
+    </p>
+    <div class="owner-row">
+      <p class="owner">
+        <span lang="es">© 2026 Miguel Angel Arias. Todos los derechos reservados.</span>
+        <span lang="en">© 2026 Miguel Angel Arias. All rights reserved.</span>
+      </p>
+      <a class="btn-outline" href="https://www.linkedin.com/in/miguel-angel-bermudez-internationaltrade/" target="_blank" rel="noopener noreferrer"><span lang="es">Perfil profesional</span><span lang="en">Professional profile</span> &nbsp;&#8599;</a>
+    </div>
+  </div>
+</footer>
+
+<nav class="tabbar" data-label-es="Secciones" data-label-en="Sections" aria-label="Secciones">
+  <a href="#regiones"><span lang="es">Regiones</span><span lang="en">Regions</span></a>
+  <a href="#variedades"><span lang="es">Variedades</span><span lang="en">Varieties</span></a>
+  <a href="#proceso"><span lang="es">Proceso</span><span lang="en">Process</span></a>
+  <a href="#preparar"><span lang="es">Preparar</span><span lang="en">Brew</span></a>
+</nav>
+<script src="main.js"></script>
+</body>
+</html>
