@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lote-col.com/sitemap.xml
+Sitemap: https://www.lote-col.com/sitemap.xml

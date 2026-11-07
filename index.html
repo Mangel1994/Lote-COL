@@ -7,15 +7,15 @@
   <meta name="theme-color" content="#0E1712" media="(prefers-color-scheme: dark)">
   <title>Lote Col | Café colombiano de origen</title>
   <meta name="description" content="Guía del café colombiano de origen: regiones, variedades, proceso y calculadora de preparación. Guide to Colombian single-origin coffee.">
-  <link rel="canonical" href="https://lote-col.com/">
+  <link rel="canonical" href="https://www.lote-col.com/">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Lote Col">
-  <meta property="og:url" content="https://lote-col.com/">
+  <meta property="og:url" content="https://www.lote-col.com/">
   <meta property="og:title" content="Lote Col | Café colombiano de origen">
   <meta property="og:description" content="Regiones, variedades, proceso y calculadora de preparación (V60, Chemex, moka, espresso…). Guide to Colombian single-origin coffee.">
-  <meta property="og:image" content="https://lote-col.com/og-image.jpg">
+  <meta property="og:image" content="https://www.lote-col.com/og-image.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -25,9 +25,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lote Col | Café colombiano de origen">
   <meta name="twitter:description" content="Regiones, variedades, proceso y calculadora de preparación. Guide to Colombian single-origin coffee.">
-  <meta name="twitter:image" content="https://lote-col.com/og-image.jpg">
-  <link rel="preload" href="fonts/big-shoulders-stencil.woff" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="fonts/hanken-grotesk.woff" as="font" type="font/woff" crossorigin>
+  <meta name="twitter:image" content="https://www.lote-col.com/og-image.jpg">
+  <link rel="preload" href="big-shoulders-stencil.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="hanken-grotesk.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="montana.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
   <script>
@@ -43,6 +43,7 @@
   }
   document.documentElement.setAttribute('data-lang', lang);
   document.documentElement.setAttribute('lang', lang);
+  document.documentElement.classList.add('js');
 })();
   </script>
 </head>
@@ -129,8 +130,30 @@
       </div>
       <p class="count" id="count" aria-live="polite">Mostrando 8 de 8 regiones</p>
 
+
+      <div class="explorer" id="explorer">
+        <div class="ex-map">
+          <h3 class="ex-h"><span lang="es">Mapa de regiones</span><span lang="en">Region map</span></h3>
+          <p class="ex-note"><span lang="es">Mapa esquemático: las posiciones son aproximadas. Toca una región para ver su altura y su ficha.</span><span lang="en">Schematic map: positions are approximate. Tap a region to see its altitude and card.</span></p>
+          <svg class="cmap" viewBox="0 0 520 700" role="group" aria-label="Mapa esquemático de las ocho regiones cafeteras" data-label-es="Mapa esquemático de las ocho regiones cafeteras" data-label-en="Schematic map of the eight coffee regions"><polygon class="land" points="328,8 292,28 248,52 212,60 184,68 160,88 148,124 124,152 88,160 64,212 84,284 88,344 44,400 28,432 64,456 84,472 124,496 168,508 220,544 252,568 380,672 400,544 380,432 464,436 480,384 468,280 480,256 404,260 376,224 284,208 280,144 300,72"/><g class="cord" aria-hidden="true"><path d="M100 464 L116 404 L132 344 L144 284 L160 216 L168 168"/><path d="M144 464 L156 400 L172 340 L188 280 L212 224"/><path d="M180 424 L200 368 L228 304 L252 240 L284 176"/></g><g class="mk" data-i="0" role="button" tabindex="0" aria-pressed="false"><circle class="hit" cx="156" cy="400" r="20"/><circle class="dot" cx="156" cy="400" r="9"/><text x="173" y="405" text-anchor="start">Huila</text></g><g class="mk" data-i="1" role="button" tabindex="0" aria-pressed="false"><circle class="hit" cx="88" cy="452" r="20"/><circle class="dot" cx="88" cy="452" r="9"/><text x="71" y="457" text-anchor="end">Nariño</text></g><g class="mk" data-i="2" role="button" tabindex="0" aria-pressed="false"><circle class="hit" cx="112" cy="408" r="20"/><circle class="dot" cx="112" cy="408" r="9"/><text x="95" y="413" text-anchor="end">Cauca</text></g><g class="mk" data-i="3" role="button" tabindex="0" aria-pressed="false"><circle class="hit" cx="164" cy="348" r="20"/><circle class="dot" cx="164" cy="348" r="9"/><text x="181" y="353" text-anchor="start">Tolima</text></g><g class="mk" data-i="4" role="button" tabindex="0" aria-pressed="false"><circle class="hit" cx="156" cy="252" r="20"/><circle class="dot" cx="156" cy="252" r="9"/><text x="173" y="257" text-anchor="start">Antioquia</text></g><g class="mk" data-i="5" role="button" tabindex="0" aria-pressed="false"><circle class="hit" cx="152" cy="312" r="20"/><circle class="dot" cx="152" cy="312" r="9"/><text x="169" y="317" text-anchor="start"><tspan lang="es">Eje Cafetero</tspan><tspan lang="en">Coffee Axis</tspan></text></g><g class="mk" data-i="6" role="button" tabindex="0" aria-pressed="false"><circle class="hit" cx="252" cy="228" r="20"/><circle class="dot" cx="252" cy="228" r="9"/><text x="269" y="233" text-anchor="start">Santander</text></g><g class="mk" data-i="7" role="button" tabindex="0" aria-pressed="false"><circle class="hit" cx="232" cy="72" r="20"/><circle class="dot" cx="232" cy="72" r="9"/><text x="249" y="77" text-anchor="start">Sierra Nevada</text></g></svg>
+          <ul class="legend" aria-label="Altura máxima de cultivo" data-label-es="Altura máxima de cultivo" data-label-en="Maximum growing altitude">
+            <li><i class="t1"></i><span lang="es">Hasta 1.900 m</span><span lang="en">Up to 1,900 m</span></li>
+            <li><i class="t2"></i><span lang="es">2.000 m</span><span lang="en">2,000 m</span></li>
+            <li><i class="t3"></i><span lang="es">Desde 2.100 m</span><span lang="en">From 2,100 m</span></li>
+          </ul>
+        </div>
+        <div class="ex-side">
+          <h3 class="ex-h"><span lang="es">Rueda de sabores</span><span lang="en">Flavor wheel</span></h3>
+          <p class="ex-note"><span lang="es">Toca una nota para filtrar las regiones y el mapa.</span><span lang="en">Tap a note to filter the regions and the map.</span></p>
+          <svg class="wheel" viewBox="0 0 300 300" role="group" aria-label="Rueda de sabores" data-label-es="Rueda de sabores" data-label-en="Flavor wheel"><g class="sg" data-tag="dulce" role="button" tabindex="0" aria-pressed="false" style="--c:#EBC98F"><path d="M153.7 8.0 A142 142 0 0 1 283.9 102.6 L210.3 128.6 A64 64 0 0 0 151.7 86.0 Z"/><text x="211" y="71" text-anchor="middle"><tspan lang="es">Dulce</tspan><tspan lang="en">Sweet</tspan></text></g><g class="sg" data-tag="frutal" role="button" tabindex="0" aria-pressed="false" style="--c:#EFA999"><path d="M286.2 109.7 A142 142 0 0 1 236.4 262.7 L189.0 200.8 A64 64 0 0 0 211.4 131.8 Z"/><text x="248" y="186" text-anchor="middle"><tspan lang="es">Frutal</tspan><tspan lang="en">Fruity</tspan></text></g><g class="sg" data-tag="citrico" role="button" tabindex="0" aria-pressed="false" style="--c:#E9E08A"><path d="M230.4 267.0 A142 142 0 0 1 69.6 267.0 L113.8 202.7 A64 64 0 0 0 186.2 202.7 Z"/><text x="150" y="257" text-anchor="middle"><tspan lang="es">Cítrico</tspan><tspan lang="en">Citrus</tspan></text></g><g class="sg" data-tag="floral" role="button" tabindex="0" aria-pressed="false" style="--c:#D9BFE6"><path d="M63.6 262.7 A142 142 0 0 1 13.8 109.7 L88.6 131.8 A64 64 0 0 0 111.0 200.8 Z"/><text x="52" y="186" text-anchor="middle">Floral</text></g><g class="sg" data-tag="chocolate" role="button" tabindex="0" aria-pressed="false" style="--c:#C9A889"><path d="M16.1 102.6 A142 142 0 0 1 146.3 8.0 L148.3 86.0 A64 64 0 0 0 89.7 128.6 Z"/><text x="89" y="71" text-anchor="middle">Chocolate</text></g><text class="wn" id="wN" x="150" y="150" text-anchor="middle">8</text><text class="wl" x="150" y="172" text-anchor="middle"><tspan lang="es">regiones</tspan><tspan lang="en">regions</tspan></text></svg>
+          <div class="info" id="mapInfo" aria-live="polite">
+            <p class="info-empty"><span lang="es">Elige una región en el mapa.</span><span lang="en">Pick a region on the map.</span></p>
+          </div>
+        </div>
+      </div>
+
       <ul class="regions">
-        <li class="region" data-notes="dulce frutal floral">
+        <li class="region" id="reg-0" data-notes="dulce frutal floral">
           <div>
             <h3>Huila</h3>
             <span class="dept"><span lang="es">Sur andino</span><span lang="en">Southern Andes</span></span>
@@ -154,7 +177,7 @@
           </ul>
         </li>
 
-        <li class="region" data-notes="citrico dulce floral">
+        <li class="region" id="reg-1" data-notes="citrico dulce floral">
           <div>
             <h3>Nariño</h3>
             <span class="dept"><span lang="es">Frontera con Ecuador</span><span lang="en">Ecuador border</span></span>
@@ -178,7 +201,7 @@
           </ul>
         </li>
 
-        <li class="region" data-notes="citrico floral dulce">
+        <li class="region" id="reg-2" data-notes="citrico floral dulce">
           <div>
             <h3>Cauca</h3>
             <span class="dept"><span lang="es">Alrededores de Popayán</span><span lang="en">Around Popayán</span></span>
@@ -202,7 +225,7 @@
           </ul>
         </li>
 
-        <li class="region" data-notes="frutal citrico chocolate">
+        <li class="region" id="reg-3" data-notes="frutal citrico chocolate">
           <div>
             <h3>Tolima</h3>
             <span class="dept"><span lang="es">Planadas y el sur</span><span lang="en">Planadas and the south</span></span>
@@ -226,7 +249,7 @@
           </ul>
         </li>
 
-        <li class="region" data-notes="chocolate dulce">
+        <li class="region" id="reg-4" data-notes="chocolate dulce">
           <div>
             <h3>Antioquia</h3>
             <span class="dept"><span lang="es">Suroeste y oriente</span><span lang="en">Southwest and east</span></span>
@@ -250,7 +273,7 @@
           </ul>
         </li>
 
-        <li class="region" data-notes="chocolate dulce">
+        <li class="region" id="reg-5" data-notes="chocolate dulce">
           <div>
             <h3><span lang="es">Eje Cafetero</span><span lang="en">Coffee Axis</span></h3>
             <span class="dept">Caldas · Quindío · Risaralda</span>
@@ -274,7 +297,7 @@
           </ul>
         </li>
 
-        <li class="region" data-notes="chocolate dulce">
+        <li class="region" id="reg-6" data-notes="chocolate dulce">
           <div>
             <h3>Santander</h3>
             <span class="dept"><span lang="es">Cordillera Oriental</span><span lang="en">Eastern Cordillera</span></span>
@@ -298,7 +321,7 @@
           </ul>
         </li>
 
-        <li class="region" data-notes="dulce chocolate">
+        <li class="region" id="reg-7" data-notes="dulce chocolate">
           <div>
             <h3>Sierra Nevada</h3>
             <span class="dept">Magdalena · La Guajira · Cesar</span>
@@ -552,6 +575,34 @@
           </p>
         </div>
       </div>
+
+      <div class="glossary">
+        <h3 class="ex-h"><span lang="es">Glosario del caficultor</span><span lang="en">Grower's glossary</span></h3>
+        <details class="gl-item">
+          <summary><span lang="es">Lavado</span><span lang="en">Washed</span></summary>
+          <p><span lang="es">Se retira la pulpa y el mucílago antes de secar: el grano se fermenta en agua, se lava y luego se seca. La taza es limpia y brillante, con acidez bien definida.</span><span lang="en">The pulp and mucilage are removed before drying: the bean ferments in water, is washed and then dried. The cup is clean and bright, with well-defined acidity.</span></p>
+        </details>
+        <details class="gl-item">
+          <summary><span lang="es">Natural</span><span lang="en">Natural</span></summary>
+          <p><span lang="es">La cereza entera se seca al sol con su pulpa. El grano absorbe azúcares de la fruta: taza más dulce, con cuerpo y notas a fruta madura.</span><span lang="en">The whole cherry dries in the sun with its pulp. The bean absorbs sugars from the fruit: a sweeter cup with body and ripe-fruit notes.</span></p>
+        </details>
+        <details class="gl-item">
+          <summary><span lang="es">Honey</span><span lang="en">Honey</span></summary>
+          <p><span lang="es">Se quita la pulpa pero se deja parte del mucílago pegajoso durante el secado. No lleva miel: el nombre viene de esa capa dulce. El resultado queda entre un lavado y un natural.</span><span lang="en">The pulp is removed but part of the sticky mucilage stays on during drying. No honey is added: the name comes from that sweet layer. The result sits between a washed and a natural.</span></p>
+        </details>
+        <details class="gl-item">
+          <summary><span lang="es">Beneficio húmedo</span><span lang="en">Wet milling</span></summary>
+          <p><span lang="es">Conjunto de pasos con agua que se hace en la finca: despulpado, fermentación, lavado y secado. Es el método más extendido en Colombia.</span><span lang="en">The set of water-based steps done at the farm: pulping, fermentation, washing and drying. It is the most widespread method in Colombia.</span></p>
+        </details>
+        <details class="gl-item">
+          <summary><span lang="es">Cenicafé 1</span><span lang="en">Cenicafé 1</span></summary>
+          <p><span lang="es">Variedad desarrollada por Cenicafé, el centro de investigación de la Federación Nacional de Cafeteros, resistente a la roya, la enfermedad que más daña los cafetales.</span><span lang="en">A variety developed by Cenicafé, the research centre of the National Federation of Coffee Growers, resistant to leaf rust, the disease that most damages coffee plantations.</span></p>
+        </details>
+        <details class="gl-item">
+          <summary><span lang="es">Panela</span><span lang="en">Panela</span></summary>
+          <p><span lang="es">Azúcar de caña sin refinar, que se vende en bloques. En las zonas cafeteras se disuelve en agua caliente para hacer agua de panela y a veces se usa para endulzar el café.</span><span lang="en">Unrefined cane sugar sold in blocks. In coffee regions it is dissolved in hot water to make agua de panela and is sometimes used to sweeten coffee.</span></p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -564,45 +615,88 @@
         <span lang="en">Choose a method and an amount of water. The calculator gives you grams of coffee, temperature and time as a starting point. Adjust to taste afterwards.</span>
       </p>
 
-      <div class="calc">
-        <div class="panel">
-          <div class="field">
-            <label for="method"><span lang="es">Método</span><span lang="en">Method</span></label>
-            <select id="method">
-              <option value="v60" data-es="V60 / filtro de papel" data-en="V60 / paper filter">V60 / filtro de papel</option>
-              <option value="chemex" data-es="Chemex" data-en="Chemex">Chemex</option>
-              <option value="prensa" data-es="Prensa francesa" data-en="French press">Prensa francesa</option>
-              <option value="aeropress" data-es="Aeropress" data-en="AeroPress">Aeropress</option>
-              <option value="moka" data-es="Moka italiana" data-en="Moka pot">Moka italiana</option>
-              <option value="espresso" data-es="Espresso" data-en="Espresso">Espresso</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="amount" id="amountLabel">Agua (ml)</label>
-            <input id="amount" type="number" inputmode="decimal" min="1" max="2000" step="5" value="300">
-          </div>
+      <div class="calc2">
+        <div class="mpick" id="mpick" role="radiogroup" data-label-es="Método de preparación" data-label-en="Brewing method" aria-label="Método de preparación">
+          <button type="button" class="mbtn" role="radio" aria-checked="true" data-m="v60"><span class="ic" aria-hidden="true"><svg viewBox="0 0 200 200" focusable="false"><polygon points="25,30 175,30 112,112 88,112" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt" fill="#E1E7DA"/><rect x="25" y="22" width="150" height="10" fill="#14211A"/><rect x="80" y="112" width="40" height="12" fill="#003893"/><path d="M55 124h90v52H55z" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt"/><rect x="58" y="150" width="84" height="23" fill="#2C6A49"/><path d="M145 138h20v24h-20" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt"/><line x1="100" y1="112" x2="100" y2="146" stroke="#2C6A49" stroke-width="6"/></svg></span><span class="mn">V60</span></button>
+          <button type="button" class="mbtn" role="radio" aria-checked="false" tabindex="-1" data-m="chemex"><span class="ic" aria-hidden="true"><svg viewBox="0 0 200 200" focusable="false"><polygon points="45,25 155,25 106,98" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt" fill="#E1E7DA"/><polygon points="94,106 106,106 168,178 32,178" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt"/><polygon points="62,150 138,150 160,174 40,174" fill="#2C6A49"/><rect x="86" y="86" width="28" height="28" fill="#003893"/><path d="M88 92 Q70 96 60 80" stroke="#14211A" stroke-width="5" fill="none"/></svg></span><span class="mn">Chemex</span></button>
+          <button type="button" class="mbtn" role="radio" aria-checked="false" tabindex="-1" data-m="prensa"><span class="ic" aria-hidden="true"><svg viewBox="0 0 200 200" focusable="false"><rect x="48" y="60" width="104" height="116" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt" fill="#E1E7DA"/><rect x="48" y="110" width="104" height="66" fill="#2C6A49"/><rect x="40" y="46" width="120" height="16" fill="#14211A"/><line x1="100" y1="46" x2="100" y2="120" stroke="#14211A" stroke-width="7"/><rect x="62" y="116" width="76" height="8" fill="#003893"/><circle cx="100" cy="28" r="14" fill="#003893"/><path d="M152 80h24v60h-24" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt"/></svg></span><span class="mn"><span lang="es">Prensa</span><span lang="en">French press</span></span></button>
+          <button type="button" class="mbtn" role="radio" aria-checked="false" tabindex="-1" data-m="aeropress"><span class="ic" aria-hidden="true"><svg viewBox="0 0 200 200" focusable="false"><rect x="68" y="30" width="64" height="100" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt" fill="#E1E7DA"/><rect x="76" y="8" width="48" height="22" fill="#003893"/><rect x="92" y="30" width="16" height="48" fill="#14211A"/><rect x="62" y="130" width="76" height="12" fill="#14211A"/><path d="M50 142h100v36H50z" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt"/><rect x="53" y="158" width="94" height="17" fill="#2C6A49"/></svg></span><span class="mn">Aeropress</span></button>
+          <button type="button" class="mbtn" role="radio" aria-checked="false" tabindex="-1" data-m="moka"><span class="ic" aria-hidden="true"><svg viewBox="0 0 200 200" focusable="false"><polygon points="48,40 152,40 128,108 72,108" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt" fill="#003893"/><polygon points="72,114 128,114 150,182 50,182" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt" fill="#E1E7DA"/><rect x="58" y="24" width="84" height="14" fill="#14211A"/><circle cx="100" cy="16" r="9" fill="#14211A"/><path d="M152 56h26v52h-22" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt"/><path d="M48 58 L34 52" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt"/></svg></span><span class="mn">Moka</span></button>
+          <button type="button" class="mbtn" role="radio" aria-checked="false" tabindex="-1" data-m="espresso"><span class="ic" aria-hidden="true"><svg viewBox="0 0 200 200" focusable="false"><rect x="28" y="22" width="144" height="70" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt" fill="#E1E7DA"/><circle cx="62" cy="56" r="16" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt" fill="#003893"/><rect x="100" y="42" width="56" height="12" fill="#14211A"/><rect x="92" y="92" width="16" height="22" fill="#14211A"/><rect x="80" y="114" width="40" height="8" fill="#14211A"/><line x1="100" y1="122" x2="100" y2="146" stroke="#2C6A49" stroke-width="6"/><path d="M70 146h60l-8 32H78z" fill="none" stroke="#14211A" stroke-width="7" stroke-linejoin="miter" stroke-linecap="butt"/><rect x="28" y="182" width="144" height="8" fill="#14211A"/></svg></span><span class="mn">Espresso</span></button>
         </div>
 
-        <div class="panel out">
-          <p class="out-label"><span lang="es">Café molido</span><span lang="en">Ground coffee</span></p>
-          <p class="out-big" id="outCoffee">18,8 g</p>
-          <dl>
-            <dt><span lang="es">Proporción</span><span lang="en">Ratio</span></dt><dd id="outRatio">1:16</dd>
-            <dt><span lang="es">Temperatura</span><span lang="en">Temperature</span></dt><dd id="outTemp">92–96 °C</dd>
-            <dt><span lang="es">Tiempo</span><span lang="en">Time</span></dt><dd id="outTime">2:30–3:00</dd>
-            <dt><span lang="es">Molienda</span><span lang="en">Grind</span></dt><dd id="outGrind">Media-fina</dd>
-            <dt><span lang="es">Rinde (aprox.)</span><span lang="en">Yield (approx.)</span></dt><dd id="outCups">—</dd>
-            <dt class="extra" hidden><span lang="es">Presión</span><span lang="en">Pressure</span></dt><dd class="extra" id="outPressure" hidden></dd>
-            <dt class="extra" hidden><span lang="es">Calor</span><span lang="en">Heat</span></dt><dd class="extra" id="outHeat" hidden></dd>
-            <dt class="extra" hidden><span lang="es">Tueste</span><span lang="en">Roast</span></dt><dd class="extra" id="outRoast" hidden></dd>
-            <dt class="extra" hidden><span lang="es">Agua inicial</span><span lang="en">Starting water</span></dt><dd class="extra" id="outStart" hidden></dd>
-          </dl>
-          <button type="button" class="btn copy" id="copyBtn"><span lang="es">Copiar receta</span><span lang="en">Copy recipe</span></button>
-          <p class="tip" id="outTip">Prueba un Nariño o un Cauca: la acidez cítrica se luce con el filtro de papel.</p>
-          <div class="howto" id="howto" hidden>
-            <p class="out-label"><span lang="es">Paso a paso</span><span lang="en">Step by step</span></p>
-            <ol class="how" id="outSteps"></ol>
-            <p class="how-note" id="outNote"></p>
+        <div class="cgrid">
+          <div class="panel ctl">
+            <div class="field">
+              <label for="coffeeNum" id="coffeeLabel"><span lang="es">Café molido (g)</span><span lang="en">Ground coffee (g)</span></label>
+              <input id="coffeeNum" type="number" inputmode="decimal" min="1" max="200" step="0.5" value="18.8">
+              <input id="coffeeRange" type="range" aria-labelledby="coffeeLabel">
+            </div>
+            <div class="field">
+              <label for="amount" id="amountLabel">Agua (ml)</label>
+              <input id="amount" type="number" inputmode="decimal" min="1" max="2000" step="5" value="300">
+              <input id="amountRange" type="range" aria-labelledby="amountLabel">
+            </div>
+            <p class="out-label ratio-label" id="ratioLabel"><span lang="es">Ratio sugerido</span><span lang="en">Suggested ratio</span></p>
+            <div class="ratios" id="ratios" role="radiogroup" aria-labelledby="ratioLabel"></div>
+            <p class="ctl-note"><span lang="es">Mueve el café y el agua se recalcula con el ratio elegido, y al revés.</span><span lang="en">Move the coffee and the water follows the chosen ratio, and the other way round.</span></p>
+          </div>
+
+          <div class="panel out card">
+            <p class="out-label"><span lang="es">Receta resultante</span><span lang="en">Your recipe</span></p>
+            <p class="out-big" id="outCoffee">18,8 g</p>
+            <p class="out-sub"><span lang="es">de café molido</span><span lang="en">of ground coffee</span></p>
+            <dl class="facts">
+              <div><dt><span lang="es">Agua</span><span lang="en">Water</span></dt><dd id="outWater">300 ml</dd></div>
+              <div><dt><span lang="es">Temperatura</span><span lang="en">Temperature</span></dt><dd id="outTemp">92–96 °C</dd></div>
+              <div><dt><span lang="es">Molienda</span><span lang="en">Grind</span></dt><dd id="outGrind">Media-fina</dd></div>
+              <div><dt><span lang="es">Tiempo</span><span lang="en">Time</span></dt><dd id="outTime">2:30–3:00</dd></div>
+              <div><dt><span lang="es">Ratio real</span><span lang="en">Actual ratio</span></dt><dd id="outRatio">1:16</dd></div>
+              <div><dt><span lang="es">Rinde (aprox.)</span><span lang="en">Yield (approx.)</span></dt><dd id="outCups">—</dd></div>
+              <div class="extra" hidden><dt><span lang="es">Presión</span><span lang="en">Pressure</span></dt><dd id="outPressure"></dd></div>
+              <div class="extra" hidden><dt><span lang="es">Calor</span><span lang="en">Heat</span></dt><dd id="outHeat"></dd></div>
+              <div class="extra" hidden><dt><span lang="es">Tueste</span><span lang="en">Roast</span></dt><dd id="outRoast"></dd></div>
+              <div class="extra" hidden><dt><span lang="es">Agua inicial</span><span lang="en">Starting water</span></dt><dd id="outStart"></dd></div>
+            </dl>
+            <p class="tip" id="outTip">Prueba un Nariño o un Cauca: la acidez cítrica se luce con el filtro de papel.</p>
+            <div class="actions">
+              <button type="button" class="btn copy" id="copyBtn"><span lang="es">Copiar receta</span><span lang="en">Copy recipe</span></button>
+              <button type="button" class="btn ghost" id="tStart" aria-controls="timer"><span lang="es">Iniciar extracción</span><span lang="en">Start brewing</span></button>
+            </div>
+
+            <div class="timer" id="timer" hidden>
+              <div class="t-top">
+                <p class="t-clock" id="tClock" role="timer" aria-live="off">0:00</p>
+                <button type="button" class="t-reset" id="tReset"><span lang="es">Reiniciar</span><span lang="en">Reset</span></button>
+              </div>
+              <div class="t-bar"><i id="tBar"></i></div>
+              <p class="t-now" id="tNow" role="status" aria-live="polite"></p>
+              <p class="t-next" id="tNext"></p>
+              <ol class="t-list" id="tList"></ol>
+            </div>
+
+            <div class="howto" id="howto" hidden>
+              <p class="out-label"><span lang="es">Paso a paso</span><span lang="en">Step by step</span></p>
+              <ol class="how" id="outSteps"></ol>
+              <p class="how-note" id="outNote"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grind" id="grind">
+        <h3 class="ex-h"><span lang="es">Guía de molienda</span><span lang="en">Grind guide</span></h3>
+        <p class="ex-note"><span lang="es">Elige un método o mueve el control para ver el tamaño del grano y con qué se compara.</span><span lang="en">Pick a method or move the control to see the grain size and what it compares to.</span></p>
+        <div class="gbtns" role="group" aria-label="Método" data-label-es="Método" data-label-en="Method"><button type="button" class="gbtn" data-gm="prensa" data-lv="1" aria-pressed="false"><span lang="es">Prensa</span><span lang="en">French press</span></button><button type="button" class="gbtn" data-gm="chemex" data-lv="2" aria-pressed="false">Chemex</button><button type="button" class="gbtn" data-gm="v60" data-lv="4" aria-pressed="false">V60</button><button type="button" class="gbtn" data-gm="aeropress" data-lv="4" aria-pressed="false">Aeropress</button><button type="button" class="gbtn" data-gm="moka" data-lv="4" aria-pressed="false">Moka</button><button type="button" class="gbtn" data-gm="espresso" data-lv="5" aria-pressed="false">Espresso</button></div>
+        <div class="gbody">
+          <svg class="grains" id="grains" viewBox="0 0 300 150" role="img" aria-label="Tamaño del grano" data-label-es="Representación del tamaño del grano" data-label-en="Representation of the grain size"></svg>
+          <div class="gtext">
+            <label class="glabel" for="gRange"><span lang="es">Molienda</span><span lang="en">Grind</span></label>
+            <input type="range" id="gRange" min="1" max="5" step="1" value="4">
+            <div class="gends"><span lang="es">Gruesa</span><span lang="en">Coarse</span><span lang="es">Fina</span><span lang="en">Fine</span></div>
+            <p class="gname" id="gName" aria-live="polite"></p>
+            <p class="gcmp" id="gCmp"></p>
+            <p class="gtip"><span lang="es">Si la taza sabe ácida o aguada, muele un punto más fino. Si sabe amarga o seca, un punto más grueso.</span><span lang="en">If the cup tastes sour or watery, grind one step finer. If it tastes bitter or dry, one step coarser.</span></p>
           </div>
         </div>
       </div>
@@ -623,8 +717,8 @@
     </p>
     <div class="owner-row">
       <p class="owner">
-        <span lang="es">© 2026 Miguel Angel Arias. Todos los derechos reservados.</span>
-        <span lang="en">© 2026 Miguel Angel Arias. All rights reserved.</span>
+        <span lang="es">© 2026 Miguel Angel Bermudez Arias. Todos los derechos reservados.</span>
+        <span lang="en">© 2026 Miguel Angel Bermudez Arias. All rights reserved.</span>
       </p>
       <a class="btn-outline" href="https://www.linkedin.com/in/miguel-angel-bermudez-internationaltrade/" target="_blank" rel="noopener noreferrer"><span lang="es">Perfil profesional</span><span lang="en">Professional profile</span> &nbsp;&#8599;</a>
     </div>
