@@ -6,7 +6,7 @@ Web estática sobre café colombiano de origen, en español e inglés. No necesi
 
 - `index.html`: contenido. Cada texto tiene dos versiones, `lang="es"` y `lang="en"`. Al editar un texto, cambia las dos.
 - `styles.css`: diseño. Los colores y las tipografías están en las variables del principio (`:root`).
-- `montana.webp`: ilustración de la portada. Los textos que la acompañan (altitudes y "Zona cafetera") son texto real del `index.html`, en español e inglés.
+- `montana.webp`, `cloud-c1.webp`, `cloud-c2.webp`, `cloud-c3.webp`, `plant.webp`: ilustración de la portada y sus tres nubes, que se animan por separado. Los textos que la acompañan (altitudes y "Zona cafetera") son texto real del `index.html`, en español e inglés.
 - `aviso-legal.html`, `privacidad.html`, `cookies.html`, `accesibilidad.html`: páginas legales en español e inglés (generadas con el mismo diseño). Enlazadas desde el pie. `legal.js` solo gestiona el idioma en ellas. Revisa los datos del titular y la fecha de actualización antes de publicar.
 - `*.woff` y `OFL-*.txt`: tipografías alojadas en el propio sitio (licencia SIL OFL 1.1, con sus textos de licencia). Así no se hace ninguna petición a Google y no hace falta aviso de cookies.
 - `og-image.jpg`: vista previa al compartir el enlace (WhatsApp, Telegram, redes). `favicon-32.png`, `apple-touch-icon.png`: iconos de la pestaña y del móvil. `robots.txt` y `sitemap.xml`: para buscadores.

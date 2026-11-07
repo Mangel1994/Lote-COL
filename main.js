@@ -31,6 +31,25 @@
     v60: {
       amount: 300, ratio: 16, temp: '92–96 °C', time: '2:30–3:00', yieldLabel: 'water',
       grind: { es: 'Media-fina', en: 'Medium-fine' },
+      steps: {
+        es: [
+          "Calienta el agua a 92–96 °C y enjuaga el filtro de papel con agua caliente. Tira ese agua.",
+          "Pon el cono sobre la taza o la jarra, añade el café molido medio-fino y nivélalo. Pon la balanza a cero.",
+          "Preinfusión: vierte el doble del peso del café (unos 50 g por cada 20 g) y espera 30–45 s a que florezca.",
+          "Primer vertido: sube hasta el 60 % del agua, en círculos suaves, sin tocar el papel.",
+          "Vertido final: llega al total de agua hacia 1:30 y deja que gotee.",
+          "El goteo debe terminar hacia 2:30–3:00. Retira el cono, remueve la taza y sírvela."
+        ],
+        en: [
+          "Heat the water to 92–96 °C and rinse the paper filter with hot water. Discard that water.",
+          "Set the cone over the cup or server, add the medium-fine ground coffee and level it. Zero the scale.",
+          "Bloom: pour twice the weight of the coffee (about 50 g for every 20 g) and wait 30–45 s for it to bloom.",
+          "First pour: rise to 60 % of the water, in gentle circles, without touching the paper.",
+          "Final pour: reach the total water around 1:30 and let it drain.",
+          "The draw-down should finish around 2:30–3:00. Remove the cone, swirl the cup and serve."
+        ]
+      },
+      note: { es: "Los gramos son una guía: si sabe ácido, muele más fino; si sabe amargo, más grueso.", en: "The grams are a guide: if it tastes sour, grind finer; if bitter, grind coarser." },
       tip: {
         es: 'Prueba un Nariño o un Cauca: la acidez cítrica se luce con el filtro de papel.',
         en: 'Try a Nariño or a Cauca: citrus acidity shines through a paper filter.'
@@ -39,6 +58,25 @@
     chemex: {
       amount: 500, ratio: 15, temp: '92–96 °C', time: '3:30–4:30', yieldLabel: 'water',
       grind: { es: 'Media-gruesa', en: 'Medium-coarse' },
+      steps: {
+        es: [
+          "Abre el filtro de la Chemex con la parte de tres capas hacia el pico. Enjuágalo con agua caliente y tira esa agua.",
+          "Añade el café molido medio-grueso y nivélalo. Pon la balanza a cero.",
+          "Preinfusión: vierte el doble del peso del café y espera 30–45 s a que florezca.",
+          "Primer vertido: sube hasta el 60 % del agua, en círculos suaves, sin tocar el papel.",
+          "Vertido final: llega al total de agua hacia 1:30 y deja que gotee.",
+          "El goteo termina hacia 3:30–4:30. Retira el filtro con cuidado, remueve la jarra y sírvela."
+        ],
+        en: [
+          "Open the Chemex filter with the three-layer side toward the spout. Rinse it with hot water and discard that water.",
+          "Add the medium-coarse ground coffee and level it. Zero the scale.",
+          "Bloom: pour twice the weight of the coffee and wait 30–45 s for it to bloom.",
+          "First pour: rise to 60 % of the water, in gentle circles, without touching the paper.",
+          "Final pour: reach the total water around 1:30 and let it drain.",
+          "The draw-down ends around 3:30–4:30. Lift the filter out carefully, swirl the carafe and serve."
+        ]
+      },
+      note: { es: "El filtro de la Chemex es grueso: aguanta una molienda más gruesa y da una taza muy limpia.", en: "The Chemex filter is thick: it handles a coarser grind and gives a very clean cup." },
       tip: {
         es: 'Un Huila o un Tolima da una taza limpia y frutal en jarra.',
         en: 'A Huila or a Tolima gives a clean, fruity cup in a carafe.'
@@ -47,6 +85,25 @@
     prensa: {
       amount: 500, ratio: 15, temp: '93–96 °C', time: '4:00', yieldLabel: 'water',
       grind: { es: 'Gruesa', en: 'Coarse' },
+      steps: {
+        es: [
+          "Calienta el agua a 93–96 °C. Si quieres, enjuaga la jarra para que no se enfríe.",
+          "Añade el café molido grueso en la jarra vacía y pon la balanza a cero.",
+          "Vierte toda el agua de una vez, mojando todo el café, y pon la tapa sin bajar el émbolo.",
+          "A los 30 segundos rompe la costra con una cuchara y retira la espuma de la superficie.",
+          "Deja reposar hasta los 4:00 con el émbolo arriba.",
+          "Baja el émbolo despacio, sin forzar, y sirve de inmediato para que no se siga extrayendo."
+        ],
+        en: [
+          "Heat the water to 93–96 °C. If you like, rinse the beaker so it does not cool the brew.",
+          "Add the coarse ground coffee to the empty beaker and zero the scale.",
+          "Pour all the water in one go, wetting all the coffee, and put the lid on without pressing the plunger.",
+          "At 30 seconds break the crust with a spoon and skim the foam off the surface.",
+          "Let it steep until 4:00 with the plunger up.",
+          "Press the plunger down slowly, without forcing it, and serve right away so it does not keep extracting."
+        ]
+      },
+      note: { es: "Sirve todo el café al terminar: si se queda sobre los posos, se sigue extrayendo y amarga.", en: "Serve all the coffee when done: if it sits on the grounds it keeps extracting and turns bitter." },
       tip: {
         es: 'Santander o Antioquia: el cuerpo y el cacao se mantienen con la prensa.',
         en: 'Santander or Antioquia: body and cocoa hold up in a French press.'
@@ -55,6 +112,25 @@
     aeropress: {
       amount: 220, ratio: 15, temp: '88–94 °C', time: '1:30–2:00', yieldLabel: 'water',
       grind: { es: 'Media-fina', en: 'Medium-fine' },
+      steps: {
+        es: [
+          "Calienta el agua a 88–94 °C. Enjuaga el filtro de papel en el tapón y enrosca el tapón en la cámara.",
+          "Coloca la aeropress sobre una taza resistente, añade el café molido medio-fino y pon la balanza a cero.",
+          "Vierte toda el agua y arranca el cronómetro.",
+          "A los 10 segundos remueve 3 veces con la paleta.",
+          "Coloca el émbolo sin presionar para crear vacío y deja reposar hasta 1:30.",
+          "Presiona despacio, unos 30 segundos, hasta oír el siseo. Sirve o diluye con agua caliente al gusto."
+        ],
+        en: [
+          "Heat the water to 88–94 °C. Rinse the paper filter in the cap and screw the cap onto the chamber.",
+          "Set the AeroPress over a sturdy cup, add the medium-fine ground coffee and zero the scale.",
+          "Pour in all the water and start the timer.",
+          "At 10 seconds stir 3 times with the paddle.",
+          "Insert the plunger without pressing to create a vacuum and let it steep until 1:30.",
+          "Press slowly, about 30 seconds, until you hear the hiss. Serve, or dilute with hot water to taste."
+        ]
+      },
+      note: { es: "La aeropress admite muchas recetas: cambia la molienda y el tiempo de una en una para notar la diferencia.", en: "The AeroPress allows many recipes: change the grind and the time one at a time to notice the difference." },
       tip: {
         es: 'Un Huila funciona bien: dulce y fácil de repetir.',
         en: 'A Huila works well: sweet and easy to repeat.'
@@ -102,6 +178,25 @@
     espresso: {
       amount: 36, ratio: 2, temp: '92–94 °C', time: '25–30 s', yieldLabel: 'cup',
       grind: { es: 'Fina', en: 'Fine' },
+      steps: {
+        es: [
+          "Enciende la máquina y déjala calentar, con el portafiltro puesto, para que todo esté a temperatura.",
+          "Muele fino y llena el portafiltro con la dosis. Nivela el café con el dedo.",
+          "Compacta con el tamper, a ras y con presión pareja, y limpia los bordes del portafiltro.",
+          "Haz salir un poco de agua para limpiar el grupo, coloca el portafiltro y pon la taza sobre la balanza.",
+          "Inicia la extracción y arranca el cronómetro: debe empezar a caer café en unos 5–8 segundos.",
+          "Detén la extracción cuando llegues al peso de bebida de la receta, entre los 25 y los 30 segundos. Sirve de inmediato."
+        ],
+        en: [
+          "Turn the machine on and let it warm up with the portafilter attached, so everything is at temperature.",
+          "Grind fine and fill the portafilter with the dose. Level the coffee with your finger.",
+          "Tamp level with even pressure and wipe the edges of the portafilter.",
+          "Flush a little water to clean the group head, lock in the portafilter and put the cup on the scale.",
+          "Start the extraction and the timer: coffee should begin to drip within about 5–8 seconds.",
+          "Stop when you reach the recipe's liquid weight, between 25 and 30 seconds. Serve right away."
+        ]
+      },
+      note: { es: "Si sale muy rápido y ácido, muele más fino; si tarda y amarga, más grueso.", en: "If it runs too fast and sour, grind finer; if it is slow and bitter, grind coarser." },
       tip: {
         es: 'Antioquia o Eje Cafetero: chocolate y caramelo con poco amargor.',
         en: 'Antioquia or Coffee Axis: chocolate and caramel with little bitterness.'
@@ -156,6 +251,8 @@
     if (!ex) { return; }
     var marks = ex.querySelectorAll('.mk');
     var segs = ex.querySelectorAll('.sg');
+    var deps = ex.querySelectorAll('.dep');
+    var wheelEl = ex.querySelector('.wheel');
     var info = document.getElementById('mapInfo');
     var wN = document.getElementById('wN');
     var filterChips = {};
@@ -192,6 +289,13 @@
         g.setAttribute('aria-pressed', c ? c.getAttribute('aria-pressed') : 'false');
         g.setAttribute('aria-label', label(g));
       });
+      deps.forEach(function (dp) {
+        var i = +dp.getAttribute('data-i');
+        dp.classList.toggle('off', document.getElementById('reg-' + i).hidden);
+        dp.classList.toggle('on', i === activeIdx);
+      });
+      var anyOn = filterChips.todas && filterChips.todas.getAttribute('aria-pressed') !== 'true';
+      wheelEl.setAttribute('data-f', anyOn ? '1' : '0');
       wN.textContent = shownN;
     }
     function showInfo(i, scroll) {
@@ -219,6 +323,11 @@
       m.addEventListener('focus', function () { showInfo(i); });
       m.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); buzz(8); showInfo(i); } });
     });
+    deps.forEach(function (dp) {
+      var i = +dp.getAttribute('data-i');
+      dp.addEventListener('click', function () { buzz(8); showInfo(i); });
+      dp.addEventListener('mouseenter', function () { showInfo(i); });
+    });
     function pickTag(g) {
       var tag = g.getAttribute('data-tag');
       var c = filterChips[tag];
@@ -234,53 +343,151 @@
     sync();
   })();
 
-  /* Guía de molienda */
+  /* Guía de molienda: visor de partículas */
   (function () {
     var box = document.getElementById('grind');
     if (!box) { return; }
-    var range = document.getElementById('gRange');
-    var gName = document.getElementById('gName');
-    var gCmp = document.getElementById('gCmp');
-    var svg = document.getElementById('grains');
-    var btns = box.querySelectorAll('.gbtn');
-    var LV = {
-      1: { r: 9, n: ['Gruesa', 'Coarse'], c: ['Como la sal marina gruesa · ≈ 1.100 µm', 'Like coarse sea salt · ≈ 1,100 µm'] },
-      2: { r: 7, n: ['Media-gruesa', 'Medium-coarse'], c: ['Como la sal gruesa de cocina · ≈ 850 µm', 'Like coarse kosher salt · ≈ 850 µm'] },
-      3: { r: 5.5, n: ['Media', 'Medium'], c: ['Como la arena de playa · ≈ 650 µm', 'Like beach sand · ≈ 650 µm'] },
-      4: { r: 4, n: ['Media-fina', 'Medium-fine'], c: ['Como la sal de mesa · ≈ 450 µm', 'Like table salt · ≈ 450 µm'] },
-      5: { r: 2.6, n: ['Fina', 'Fine'], c: ['Como el azúcar extrafino · ≈ 250 µm', 'Like superfine sugar · ≈ 250 µm'] }
-    };
-    var idx = lang === 'en' ? 1 : 0;
-    function draw(lv) {
-      var r = LV[lv].r, step = r * 2.5, out = '', seed = lv * 97, w = 300, h = 150;
-      function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
-      for (var y = step / 2; y < h; y += step) {
-        for (var x = step / 2; x < w; x += step) {
-          var rr = r * (0.75 + rnd() * 0.5);
-          out += '<circle cx="' + (x + (rnd() - 0.5) * step * 0.35).toFixed(1) + '" cy="' + (y + (rnd() - 0.5) * step * 0.35).toFixed(1) + '" r="' + rr.toFixed(1) + '"/>';
+    var cv = document.getElementById('gCv'), ctx = cv.getContext('2d');
+    var rng = document.getElementById('gRange');
+    var chipsBox = document.getElementById('gChips');
+    var M = [
+      { id: 'prensa', name: ['Prensa', 'French press'], v: 8, range: [0, 22],
+        kind: ['Método de inmersión', 'Immersion method'],
+        tk: ['Ajuste de filtración', 'Filtration setting'],
+        tx: ['la molienda gruesa evita que el sedimento atraviese la malla metálica.', 'a coarse grind keeps sediment from passing through the metal mesh.'] },
+      { id: 'chemex', name: ['Chemex', 'Chemex'], v: 30, range: [20, 42],
+        kind: ['Vertido con filtro grueso', 'Pour-over with a thick filter'],
+        tk: ['Ajuste de flujo', 'Flow setting'],
+        tx: ['el filtro grueso frena el agua; una molienda algo más abierta evita que el lecho se atasque.', 'the thick filter slows the water; a slightly more open grind keeps the bed from clogging.'] },
+      { id: 'v60', name: ['V60', 'V60'], v: 56, range: [46, 66],
+        kind: ['Vertido con filtro de papel', 'Pour-over with a paper filter'],
+        tk: ['Ajuste de drenaje', 'Drainage setting'],
+        tx: ['si el lecho tarda más de 3:30 en vaciarse, abre la molienda un punto.', 'if the bed takes more than 3:30 to drain, open the grind one step.'] },
+      { id: 'aeropress', name: ['Aeropress', 'Aeropress'], v: 64, range: [50, 78],
+        kind: ['Inmersión con presión', 'Immersion with pressure'],
+        tk: ['Ajuste de presión', 'Pressure setting'],
+        tx: ['si cuesta mucho bajar el émbolo, la molienda está demasiado fina.', 'if the plunger is hard to press down, the grind is too fine.'] },
+      { id: 'moka', name: ['Moka', 'Moka'], v: 74, range: [60, 82],
+        kind: ['Presión por vapor', 'Steam pressure'],
+        tk: ['Ajuste de carga', 'Load setting'],
+        tx: ['llena el filtro a ras sin compactar para que el agua suba sin sobrepresión.', 'fill the basket level without tamping so the water rises without overpressure.'] },
+      { id: 'espresso', name: ['Espresso', 'Espresso'], v: 92, range: [84, 100],
+        kind: ['Presión de alta resistencia', 'High-resistance pressure'],
+        tk: ['Ajuste de tiempo de extracción', 'Extraction-time setting'],
+        tx: ['busca 25–30 s; si el café sale antes, muele más fino.', 'aim for 25–30 s; if the coffee runs out sooner, grind finer.'] }
+    ];
+    var LV = [
+      { max: 20, n: ['Gruesa', 'Coarse'], c: ['Como la sal marina gruesa', 'Like coarse sea salt'] },
+      { max: 40, n: ['Media-gruesa', 'Medium-coarse'], c: ['Como la sal en escamas', 'Like flaky salt'] },
+      { max: 50, n: ['Media', 'Medium'], c: ['Como la arena de playa', 'Like beach sand'] },
+      { max: 70, n: ['Media-fina', 'Medium-fine'], c: ['Como la sal de mesa', 'Like table salt'] },
+      { max: 86, n: ['Fina', 'Fine'], c: ['Como el azúcar blanco', 'Like white sugar'] },
+      { max: 101, n: ['Extrafina', 'Extra-fine'], c: ['Como el azúcar glas', 'Like powdered sugar'] }
+    ];
+    var toUm = function (v) { return Math.round(1400 * Math.pow(180 / 1400, v / 100) / 10) * 10; };
+    var levelOf = function (v) { return LV.filter(function (l) { return v < l.max; })[0]; };
+    var cur = M[2], val = cur.v;
+    var chipEls = M.map(function (m, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'gchip'; b.setAttribute('aria-pressed', 'false');
+      b.addEventListener('click', function () { buzz(8); cur = M[i]; val = cur.v; update(); });
+      chipsBox.appendChild(b); return b;
+    });
+    rng.addEventListener('input', function () {
+      buzz(8);
+      val = +rng.value;
+      cur = M.reduce(function (a, b) { return Math.abs(b.v - val) < Math.abs(a.v - val) ? b : a; });
+      update();
+    });
+    function css(name) { return getComputedStyle(root).getPropertyValue(name).trim() || '#14211A'; }
+    function seeded(seed) { return function () { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }; }
+    function particle(x, y, r, rand) {
+      var n = 5 + Math.floor(rand() * 4), rot = rand() * Math.PI * 2;
+      ctx.beginPath();
+      for (var k = 0; k < n; k++) {
+        var a = rot + k / n * Math.PI * 2 + (rand() - 0.5) * 0.5;
+        var rr = r * (0.62 + rand() * 0.42);
+        var px = x + Math.cos(a) * rr, py = y + Math.sin(a) * rr;
+        if (k) { ctx.lineTo(px, py); } else { ctx.moveTo(px, py); }
+      }
+      ctx.closePath(); ctx.fill();
+    }
+    var lastUm = 0, lastName = '';
+    function draw(um, name) {
+      lastUm = um; lastName = name;
+      var dpr = window.devicePixelRatio || 1, W = cv.clientWidth, H = cv.clientHeight;
+      if (!W || !H) { return; }
+      cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+      var fg = css('--fg'), accent = css('--accent'), bg = css('--bg');
+      ctx.globalAlpha = 0.07; ctx.strokeStyle = fg; ctx.lineWidth = 1;
+      for (var gx = 0; gx < W; gx += 24) { ctx.beginPath(); ctx.moveTo(gx + 0.5, 0); ctx.lineTo(gx + 0.5, H); ctx.stroke(); }
+      for (var gy = 0; gy < H; gy += 24) { ctx.beginPath(); ctx.moveTo(0, gy + 0.5); ctx.lineTo(W, gy + 0.5); ctx.stroke(); }
+      ctx.globalAlpha = 1;
+      var pxPerMm = W / 12, r = um / 1000 * pxPerMm / 2, step = r * 2.25;
+      var rand = seeded(7);
+      ctx.fillStyle = fg;
+      var target = null, best = 1e9, tx = W * 0.34, ty = H * 0.78;
+      for (var y = -step / 2; y < H + step; y += step * 0.87) {
+        var row = Math.round(y / step);
+        for (var x = -step / 2 + (row % 2 ? step / 2 : 0); x < W + step; x += step) {
+          var jx = (rand() - 0.5) * step * 0.45, jy = (rand() - 0.5) * step * 0.45;
+          var sz = 0.7 + rand() * 0.55, px = x + jx, py = y + jy;
+          particle(px, py, r * sz, rand);
+          if (rand() < 0.35) { particle(px + step * 0.5, py + step * 0.3, r * 0.28 * (0.6 + rand() * 0.6), rand); }
+          var d = (px - tx) * (px - tx) + (py - ty) * (py - ty);
+          if (d < best && px > r * 2 && py < H - r * 2) { best = d; target = { x: px, y: py, r: r * sz }; }
         }
       }
-      svg.innerHTML = out;
+      var L = lang === 'en' ? 1 : 0;
+      if (target) {
+        var ring = Math.max(target.r * 1.35, 7);
+        ctx.lineWidth = 2; ctx.strokeStyle = accent;
+        ctx.beginPath(); ctx.arc(target.x, target.y, ring, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(target.x, target.y + ring); ctx.lineTo(target.x, H); ctx.stroke();
+        var pct = target.x / W * 100;
+        document.getElementById('gLine').style.left = pct + '%';
+        document.getElementById('gDot').style.left = pct + '%';
+        var tt = document.getElementById('gTxt');
+        tt.style.left = 'clamp(0px, calc(' + pct + '% - 10px), calc(100% - 15rem))';
+        tt.innerHTML = (L ? name.toLowerCase() + ' particle' : 'Partícula ' + name.toLowerCase()) + '<br><b>≈ ' + um + ' µm</b>';
+      }
+      var bw = pxPerMm, bx = W - bw - 22, by = H - 22;
+      ctx.fillStyle = bg; ctx.fillRect(bx - 10, by - 24, bw + 20, 34);
+      ctx.strokeStyle = fg; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(bx, by - 4); ctx.lineTo(bx, by + 4); ctx.moveTo(bx, by); ctx.lineTo(bx + bw, by); ctx.moveTo(bx + bw, by - 4); ctx.lineTo(bx + bw, by + 4); ctx.stroke();
+      ctx.fillStyle = fg; ctx.font = '400 11px "IBM Plex Mono", monospace'; ctx.textAlign = 'center';
+      ctx.fillText('1 mm', bx + bw / 2, by - 9);
     }
-    function render(fromUser) {
+    function update() {
       lang = root.getAttribute('data-lang') === 'en' ? 'en' : 'es';
-      idx = lang === 'en' ? 1 : 0;
-      var lv = +range.value;
-      range.style.setProperty('--p', ((lv - 1) / 4 * 100) + '%');
-      draw(lv);
-      gName.textContent = LV[lv].n[idx];
-      gCmp.textContent = LV[lv].c[idx];
-      range.setAttribute('aria-valuetext', LV[lv].n[idx] + '. ' + LV[lv].c[idx]);
-      btns.forEach(function (b) { b.setAttribute('aria-pressed', String(+b.getAttribute('data-lv') === lv)); });
+      var L = lang === 'en' ? 1 : 0;
+      rng.value = val; rng.style.setProperty('--p', val + '%');
+      var um = toUm(val), lv = levelOf(val);
+      chipEls.forEach(function (c, i) {
+        var m = M[i];
+        c.textContent = m.name[L];
+        c.setAttribute('aria-pressed', String(m === cur));
+        c.classList.toggle('fits', m !== cur && val >= m.range[0] && val <= m.range[1]);
+      });
+      document.getElementById('gTechK').textContent = (L ? 'Technical setting · ' : 'Ajuste técnico · ') + cur.name[L] + ' (' + cur.kind[L].toLowerCase() + ')';
+      document.getElementById('gUm').textContent = '≈ ' + um + ' µm';
+      document.getElementById('gName').textContent = lv.n[L];
+      document.getElementById('gCmp').textContent = lv.c[L] + ' · ≈ ' + um + ' µm';
+      document.getElementById('gTech').innerHTML = '<strong>' + cur.tk[L] + ':</strong> ' + cur.tx[L];
+      rng.setAttribute('aria-valuetext', lv.n[L] + ', ≈ ' + um + ' µm');
+      draw(um, lv.n[L]);
     }
-    range.addEventListener('input', function () { buzz(8); render(); });
-    btns.forEach(function (b) {
-      b.addEventListener('click', function () { buzz(8); range.value = b.getAttribute('data-lv'); render(); });
-    });
-    document.querySelectorAll('[data-set-lang]').forEach(function (b) { b.addEventListener('click', function () { setTimeout(render, 0); }); });
-    render();
+    var rt;
+    window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { draw(lastUm, lastName); }, 100); });
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) { b.addEventListener('click', function () { setTimeout(update, 0); }); });
+    try {
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      if (mq.addEventListener) { mq.addEventListener('change', function () { setTimeout(function () { draw(lastUm, lastName); }, 50); }); }
+    } catch (e) { /* sin soporte */ }
+    new MutationObserver(function () { draw(lastUm, lastName); }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+    update();
   })();
-
   /* Calculadora */
   var KEYS = ['v60', 'chemex', 'prensa', 'aeropress', 'moka', 'espresso'];
   /* Tres ratios por método: [agua por gramo de café, etiqueta es, etiqueta en] */
@@ -342,6 +549,16 @@
   var ratiosBox = document.getElementById('ratios');
 
   /* Memoria local: método, cantidad y ratio de cada método (solo en este navegador) */
+  document.querySelectorAll('.num .st').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var inp = document.getElementById(b.getAttribute('data-t'));
+      var st = parseFloat(inp.step) || 1, v = parseFloat(inp.value) || 0;
+      var nv = Math.round((v + (+b.getAttribute('data-dir')) * st) / st) * st;
+      inp.value = Math.min(parseFloat(inp.max) || nv, Math.max(parseFloat(inp.min) || 0, Math.round(nv * 10) / 10));
+      buzz(8);
+      inp.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+  });
   var STORE = 'lote-calc';
   var prefs = { method: null, amounts: {}, ratios: {} };
   try {
@@ -589,6 +806,16 @@
     amountLabel.textContent = m.yieldLabel === 'cup' ? T[lang].cup : T[lang].water;
 
     tweenCoffee(ok ? state.coffee : null, fmt);
+    var barC = document.getElementById('barC'), barW = document.getElementById('barW');
+    var rr = ok ? state.water / state.coffee : RATIOS[state.key][state.ri];
+    barW.style.flexGrow = rr;
+    document.getElementById('legC').textContent = (T[lang].coffeeName || 'Café') + ' ' + (ok ? fmt.format(state.coffee) : '—') + ' g';
+    document.getElementById('legW').textContent = (T[lang].waterName || 'Agua') + ' ' + (ok ? fmt.format(state.water) : '—') + ' ml';
+    var heroArt = document.getElementById('heroArt');
+    if (heroArt.getAttribute('data-k') !== state.key) {
+      var ico = document.querySelector('.mbtn[data-m="' + state.key + '"] .ic');
+      if (ico) { heroArt.innerHTML = ico.innerHTML; heroArt.setAttribute('data-k', state.key); }
+    }
     var realRatio = ok ? state.water / state.coffee : null;
     var cupsText = ok ? T[lang].cups(fmt.format(cupsFor(state.key, state.water, state.coffee)), CUP[state.key]) : '—';
     setText('outWater', ok ? fmt.format(state.water) + ' ml' : '—');
