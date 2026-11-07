@@ -5,8 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#EEF1EA" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0E1712" media="(prefers-color-scheme: dark)">
-  <title>Lote Col</title>
+  <title>Lote Col | Café colombiano de origen</title>
   <meta name="description" content="Guía del café colombiano de origen: regiones, variedades, proceso y calculadora de preparación. Guide to Colombian single-origin coffee.">
+  <link rel="canonical" href="https://lote-col.com/">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lote Col">
+  <meta property="og:url" content="https://lote-col.com/">
+  <meta property="og:title" content="Lote Col | Café colombiano de origen">
+  <meta property="og:description" content="Regiones, variedades, proceso y calculadora de preparación (V60, Chemex, moka, espresso…). Guide to Colombian single-origin coffee.">
+  <meta property="og:image" content="https://lote-col.com/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lote Col: guía del café colombiano de origen, con iconos de seis métodos de preparación">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lote Col | Café colombiano de origen">
+  <meta name="twitter:description" content="Regiones, variedades, proceso y calculadora de preparación. Guide to Colombian single-origin coffee.">
+  <meta name="twitter:image" content="https://lote-col.com/og-image.jpg">
+  <link rel="preload" href="fonts/big-shoulders-stencil.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/hanken-grotesk.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="montana.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
   <script>
 /* Se ejecuta antes de pintar el contenido para evitar un parpadeo de idioma */
@@ -44,6 +66,8 @@
   </div>
 </div>
 
+<p class="sr-only" id="srStatus" role="status" aria-live="polite"></p>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <main id="inicio">
   <div class="hero">
     <div class="wrap hero-grid">
@@ -559,7 +583,7 @@
           </div>
         </div>
 
-        <div class="panel out" aria-live="polite">
+        <div class="panel out">
           <p class="out-label"><span lang="es">Café molido</span><span lang="en">Ground coffee</span></p>
           <p class="out-big" id="outCoffee">18,8 g</p>
           <dl>
@@ -567,11 +591,13 @@
             <dt><span lang="es">Temperatura</span><span lang="en">Temperature</span></dt><dd id="outTemp">92–96 °C</dd>
             <dt><span lang="es">Tiempo</span><span lang="en">Time</span></dt><dd id="outTime">2:30–3:00</dd>
             <dt><span lang="es">Molienda</span><span lang="en">Grind</span></dt><dd id="outGrind">Media-fina</dd>
+            <dt><span lang="es">Rinde (aprox.)</span><span lang="en">Yield (approx.)</span></dt><dd id="outCups">—</dd>
             <dt class="extra" hidden><span lang="es">Presión</span><span lang="en">Pressure</span></dt><dd class="extra" id="outPressure" hidden></dd>
             <dt class="extra" hidden><span lang="es">Calor</span><span lang="en">Heat</span></dt><dd class="extra" id="outHeat" hidden></dd>
             <dt class="extra" hidden><span lang="es">Tueste</span><span lang="en">Roast</span></dt><dd class="extra" id="outRoast" hidden></dd>
             <dt class="extra" hidden><span lang="es">Agua inicial</span><span lang="en">Starting water</span></dt><dd class="extra" id="outStart" hidden></dd>
           </dl>
+          <button type="button" class="btn copy" id="copyBtn"><span lang="es">Copiar receta</span><span lang="en">Copy recipe</span></button>
           <p class="tip" id="outTip">Prueba un Nariño o un Cauca: la acidez cítrica se luce con el filtro de papel.</p>
           <div class="howto" id="howto" hidden>
             <p class="out-label"><span lang="es">Paso a paso</span><span lang="en">Step by step</span></p>

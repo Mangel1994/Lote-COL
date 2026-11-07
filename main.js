@@ -8,13 +8,21 @@
       count: function (n, total) { return 'Mostrando ' + n + ' de ' + total + ' regiones'; },
       water: 'Agua (ml)',
       cup: 'Bebida en taza (ml)',
-      locale: 'es-ES'
+      locale: 'es-ES',
+      waterName: 'Agua', cupName: 'Bebida en taza', coffeeName: 'Café molido', ratioName: 'Proporción', tempName: 'Temperatura', timeName: 'Tiempo', grindName: 'Molienda', yieldName: 'Rinde', stepsName: 'Paso a paso',
+      cups: function (n, ml) { return '≈ ' + n + (n <= 1 ? ' taza' : ' tazas') + ' de ' + ml + ' ml'; },
+      copied: '¡Copiado!', copyFail: 'No se pudo copiar',
+      status: function (g, c) { return 'Café molido: ' + g + ' gramos. Rinde ' + c + '.'; }
     },
     en: {
       count: function (n, total) { return 'Showing ' + n + ' of ' + total + ' regions'; },
       water: 'Water (ml)',
       cup: 'Liquid in the cup (ml)',
-      locale: 'en-US'
+      locale: 'en-US',
+      waterName: 'Water', cupName: 'Liquid in the cup', coffeeName: 'Ground coffee', ratioName: 'Ratio', tempName: 'Temperature', timeName: 'Time', grindName: 'Grind', yieldName: 'Yield', stepsName: 'Step by step',
+      cups: function (n, ml) { return '≈ ' + n + (n <= 1 ? ' cup' : ' cups') + ' of ' + ml + ' ml'; },
+      copied: 'Copied!', copyFail: 'Could not copy',
+      status: function (g, c) { return 'Ground coffee: ' + g + ' grams. Yield ' + c + '.'; }
     }
   };
 
@@ -137,26 +145,86 @@
 
   function pick(v) { return (v && typeof v === 'object') ? v[lang] : v; }
 
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var CUP = { v60: 220, chemex: 240, prensa: 240, aeropress: 200, moka: 50, espresso: 36 };
+  var shown = {};
+  var coffeeNow = null;
+  var rafId = 0;
+  var srTimer = 0;
+
+  function flash(el) {
+    if (reduceMotion) { return; }
+    el.classList.remove('upd');
+    void el.offsetWidth;
+    el.classList.add('upd');
+  }
+
+  /* Cambia el texto y marca el cambio con una animación breve (no en la primera pintura) */
+  function setText(id, text) {
+    var el = document.getElementById(id);
+    var first = shown[id] === undefined;
+    if (shown[id] === text) { return; }
+    shown[id] = text;
+    el.textContent = text;
+    if (!first) { flash(el); }
+  }
+
+  /* La cifra de café cuenta hasta el nuevo valor en unos 250 ms */
+  function setCoffee(g, fmt) {
+    var el = document.getElementById('outCoffee');
+    cancelAnimationFrame(rafId);
+    if (g === null) { el.textContent = '—'; coffeeNow = null; return; }
+    if (reduceMotion || coffeeNow === null || coffeeNow === g) { el.textContent = fmt.format(g) + ' g'; coffeeNow = g; return; }
+    var from = coffeeNow, t0 = performance.now();
+    flash(el);
+    (function step(now) {
+      var p = Math.min(1, (now - t0) / 260);
+      var e = 1 - Math.pow(1 - p, 3);
+      coffeeNow = from + (g - from) * e;
+      el.textContent = fmt.format(coffeeNow) + ' g';
+      if (p < 1) { rafId = requestAnimationFrame(step); } else { coffeeNow = g; }
+    })(t0);
+  }
+
+  /* Tazas aproximadas: agua menos lo que absorbe el café (≈ 2 g por g), entre el tamaño de taza */
+  function cupsFor(key, ml, g) {
+    var m = METHODS[key];
+    var liquid = m.yieldLabel === 'cup' ? ml : Math.max(0, ml - 2 * g);
+    var n = Math.round((liquid / CUP[key]) * 2) / 2;
+    if (n < 0.5) { n = 0.5; }
+    return n;
+  }
+
   function renderCalc() {
     var m = METHODS[method.value];
     var ml = parseFloat(amount.value);
     var fmt = new Intl.NumberFormat(T[lang].locale, { maximumFractionDigits: 1 });
-    document.getElementById('outCoffee').textContent = (isFinite(ml) && ml > 0) ? fmt.format(ml / m.ratio) + ' g' : '—';
-    document.getElementById('outRatio').textContent = m.ratioText ? pick(m.ratioText) : '1:' + m.ratio;
-    document.getElementById('outTemp').textContent = pick(m.temp);
-    document.getElementById('outTime').textContent = pick(m.time);
-    document.getElementById('outGrind').textContent = pick(m.grind);
-    document.getElementById('outTip').textContent = pick(m.tip);
+    var grams = (isFinite(ml) && ml > 0) ? ml / m.ratio : null;
+    setCoffee(grams, fmt);
+    var cupsText = '—';
+    if (grams !== null) {
+      cupsText = T[lang].cups(fmt.format(cupsFor(method.value, ml, grams)), CUP[method.value]);
+    }
+    setText('outCups', cupsText);
+    setText('outRatio', m.ratioText ? pick(m.ratioText) : '1:' + m.ratio);
+    setText('outTemp', pick(m.temp));
+    setText('outTime', pick(m.time));
+    setText('outGrind', pick(m.grind));
+    setText('outTip', pick(m.tip));
+    clearTimeout(srTimer);
+    srTimer = setTimeout(function () {
+      document.getElementById('srStatus').textContent = grams === null ? '' : T[lang].status(fmt.format(grams), cupsText);
+    }, 700);
     amountLabel.textContent = m.yieldLabel === 'cup' ? T[lang].cup : T[lang].water;
 
     /* Datos técnicos adicionales, solo para los métodos que los definen */
     var extra = m.extra;
     document.querySelectorAll('.extra').forEach(function (el) { el.hidden = !extra; });
     if (extra) {
-      document.getElementById('outPressure').textContent = pick(extra.pressure);
-      document.getElementById('outHeat').textContent = pick(extra.heat);
-      document.getElementById('outRoast').textContent = pick(extra.roast);
-      document.getElementById('outStart').textContent = pick(extra.start);
+      setText('outPressure', pick(extra.pressure));
+      setText('outHeat', pick(extra.heat));
+      setText('outRoast', pick(extra.roast));
+      setText('outStart', pick(extra.start));
     }
 
     /* Paso a paso, solo para los métodos que lo definen */
@@ -180,6 +248,61 @@
   });
   amount.addEventListener('input', renderCalc);
 
+  /* Copiar la receta */
+  var toast = document.getElementById('toast');
+  var toastTimer = 0;
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 1800);
+  }
+
+  function recipeText() {
+    var m = METHODS[method.value];
+    var ml = parseFloat(amount.value);
+    var fmt = new Intl.NumberFormat(T[lang].locale, { maximumFractionDigits: 1 });
+    var t = T[lang];
+    var opt = method.options[method.selectedIndex];
+    var g = (isFinite(ml) && ml > 0) ? ml / m.ratio : null;
+    var lines = ['Lote Col · ' + opt.getAttribute('data-' + lang)];
+    lines.push((m.yieldLabel === 'cup' ? t.cupName : t.waterName) + ': ' + (isFinite(ml) ? fmt.format(ml) : '—') + ' ml');
+    lines.push(t.coffeeName + ': ' + (g === null ? '—' : fmt.format(g) + ' g'));
+    lines.push(t.ratioName + ': ' + (m.ratioText ? pick(m.ratioText) : '1:' + m.ratio));
+    lines.push(t.tempName + ': ' + pick(m.temp) + ' · ' + t.timeName + ': ' + pick(m.time));
+    lines.push(t.grindName + ': ' + pick(m.grind));
+    if (g !== null) { lines.push(t.yieldName + ': ' + T[lang].cups(fmt.format(cupsFor(method.value, ml, g)), CUP[method.value])); }
+    if (m.steps) {
+      lines.push('', t.stepsName + ':');
+      m.steps[lang].forEach(function (st, i) { lines.push((i + 1) + '. ' + st); });
+    }
+    lines.push('', 'lote-col.com');
+    return lines.join('\n');
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var text = recipeText();
+    function done(ok) { showToast(ok ? T[lang].copied : T[lang].copyFail); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
+    } else {
+      done(fallbackCopy(text));
+    }
+  });
+
   /* Idioma */
   var langButtons = document.querySelectorAll('[data-set-lang]');
 
@@ -197,6 +320,8 @@
       opt.textContent = opt.getAttribute('data-' + lang);
     });
     renderCount();
+    shown = {};
+    coffeeNow = null;
     renderCalc();
     if (persist) {
       try { localStorage.setItem('lote-lang', lang); } catch (e) { /* sin almacenamiento */ }
