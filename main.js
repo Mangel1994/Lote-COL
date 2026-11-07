@@ -245,102 +245,138 @@
   });
 
 
-  /* Mapa, rueda de sabores y ficha de región */
+  /* Mapa, rueda de sabores, barra de altitud y ficha de región */
   (function () {
     var ex = document.getElementById('explorer');
     if (!ex) { return; }
+    var cmap = ex.querySelector('.cmap');
+    var regsG = ex.querySelector('.regs');
+    var groups = ex.querySelectorAll('.rg');
     var marks = ex.querySelectorAll('.mk');
     var segs = ex.querySelectorAll('.sg');
-    var deps = ex.querySelectorAll('.dep');
     var wheelEl = ex.querySelector('.wheel');
     var info = document.getElementById('mapInfo');
+    var emptyHTML = info.innerHTML;
     var wN = document.getElementById('wN');
+    var altFill = document.getElementById('altFill');
+    var resetBtn = document.getElementById('exReset');
     var filterChips = {};
     chips.forEach(function (c) { filterChips[c.getAttribute('data-tag')] = c; });
-    var activeIdx = -1;
+    var sel = -1, hov = -1, shownKey = '', altKey = -2;
 
-    function maxAlt(card) {
-      var b = card.querySelector('.alt-head b span[lang="en"]');
-      var nums = (b ? b.textContent : '').replace(/,/g, '').match(/\d+/g) || [];
-      return nums.length ? +nums[nums.length - 1] : 0;
-    }
-    marks.forEach(function (m) {
-      var card = document.getElementById('reg-' + m.getAttribute('data-i'));
-      var a = maxAlt(card);
-      m.classList.add(a >= 2100 ? 't3' : (a >= 2000 ? 't2' : 't1'));
-    });
-    function label(el) { /* nombre accesible en el idioma activo */
+    function card(i) { return document.getElementById('reg-' + i); }
+    function label(el) {
       var t = el.querySelector('text');
       var l = t.querySelector('tspan[lang="' + lang + '"]');
       return (l || t).textContent;
     }
-    function sync() {
-      var shownN = 0;
-      marks.forEach(function (m) {
-        var card = document.getElementById('reg-' + m.getAttribute('data-i'));
-        var off = card.hidden;
-        if (!off) { shownN += 1; }
-        m.classList.toggle('off', off);
-        m.setAttribute('aria-pressed', String(+m.getAttribute('data-i') === activeIdx));
-        m.setAttribute('aria-label', label(m) + ', ' + (card.querySelector('.alt-head b span[lang="' + lang + '"]') || {}).textContent);
-      });
-      segs.forEach(function (g) {
-        var c = filterChips[g.getAttribute('data-tag')];
-        g.setAttribute('aria-pressed', c ? c.getAttribute('aria-pressed') : 'false');
-        g.setAttribute('aria-label', label(g));
-      });
-      deps.forEach(function (dp) {
-        var i = +dp.getAttribute('data-i');
-        dp.classList.toggle('off', document.getElementById('reg-' + i).hidden);
-        dp.classList.toggle('on', i === activeIdx);
-      });
-      var anyOn = filterChips.todas && filterChips.todas.getAttribute('aria-pressed') !== 'true';
-      wheelEl.setAttribute('data-f', anyOn ? '1' : '0');
-      wN.textContent = shownN;
+    function filterOn() { return !!(filterChips.todas && filterChips.todas.getAttribute('aria-pressed') !== 'true'); }
+    function renderInfo(c) {
+      var key = c + '|' + lang;
+      if (key === shownKey) { return; }
+      shownKey = key;
+      if (c < 0) { info.innerHTML = emptyHTML; return; }
+      var cd = card(c);
+      info.innerHTML = '<p><b>' + cd.querySelector('h3').innerHTML + '</b><span class="ia">' + cd.querySelector('.alt-head b').innerHTML +
+        '</span><span class="id">' + cd.querySelector('.desc').innerHTML + '</span></p>' +
+        '<button type="button" class="go" data-i="' + c + '"><span lang="es">Ver ficha</span><span lang="en">View card</span></button>';
     }
-    function showInfo(i, scroll) {
-      var card = document.getElementById('reg-' + i);
-      activeIdx = i;
-      var name = card.querySelector('h3').innerHTML;
-      var alt = card.querySelector('.alt-head b').innerHTML;
-      var desc = card.querySelector('.desc').innerHTML;
-      info.innerHTML = '<p><b>' + name + '</b><span class="ia">' + alt + '</span><span class="id">' + desc + '</span></p>' +
-        '<button type="button" class="go"><span lang="es">Ver ficha</span><span lang="en">View card</span></button>';
-      info.querySelector('.go').addEventListener('click', function () {
-        buzz(8);
-        if (card.hidden && filterChips.todas) { filterChips.todas.click(); }
-        document.querySelectorAll('.region.hl').forEach(function (r) { r.classList.remove('hl'); });
-        card.classList.add('hl');
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(function () { card.classList.remove('hl'); }, 2200);
+    function renderAlt(c) {
+      if (c === altKey) { return; }
+      altKey = c;
+      altFill.classList.remove('run');
+      if (c < 0) { return; }
+      var tr = card(c).querySelector('.alt-track');
+      altFill.style.setProperty('--a', parseFloat(tr.style.getPropertyValue('--a')) || 0);
+      altFill.style.setProperty('--b', parseFloat(tr.style.getPropertyValue('--b')) || 0);
+      void altFill.offsetWidth;
+      altFill.classList.add('run');
+    }
+    function sync() {
+      if (sel > -1 && card(sel).hidden) { sel = -1; }
+      var fOn = filterOn(), c = hov > -1 ? hov : sel, shownN = 0;
+      groups.forEach(function (g) {
+        var i = +g.getAttribute('data-i'), off = card(i).hidden;
+        if (!off) { shownN += 1; }
+        g.classList.toggle('off', off);
+        g.classList.toggle('on', i === sel);
+        g.classList.toggle('hov', i === hov && i !== sel);
+        g.classList.toggle('match', fOn && !off);
       });
+      cmap.setAttribute('data-sel', sel > -1 ? '1' : '0');
+      cmap.setAttribute('data-f', fOn ? '1' : '0');
+      marks.forEach(function (m) {
+        var i = +m.getAttribute('data-i'), off = card(i).hidden;
+        m.classList.toggle('off', off);
+        m.setAttribute('aria-pressed', String(i === sel));
+        m.setAttribute('aria-label', label(m) + ', ' + (card(i).querySelector('.alt-head b span[lang="' + lang + '"]') || {}).textContent);
+      });
+      var notes = c > -1 ? (card(c).getAttribute('data-notes') || '').split(' ') : [];
+      segs.forEach(function (g) {
+        var ch = filterChips[g.getAttribute('data-tag')];
+        g.setAttribute('aria-pressed', ch ? ch.getAttribute('aria-pressed') : 'false');
+        g.setAttribute('aria-label', label(g));
+        g.classList.toggle('m', c > -1 && notes.indexOf(g.getAttribute('data-tag')) > -1);
+      });
+      wheelEl.setAttribute('data-f', fOn ? '1' : '0');
+      wheelEl.setAttribute('data-r', c > -1 ? '1' : '0');
+      wN.textContent = shownN;
+      resetBtn.hidden = !(fOn || sel > -1);
+      renderInfo(c);
+      renderAlt(c);
+    }
+    function select(i) {
+      buzz(8);
+      sel = (sel === i) ? -1 : i;
+      if (sel > -1) { regsG.appendChild(ex.querySelector('.rg[data-i="' + i + '"]')); }
       sync();
     }
+    groups.forEach(function (g) {
+      var i = +g.getAttribute('data-i');
+      g.addEventListener('mouseenter', function () { hov = i; sync(); });
+      g.addEventListener('mouseleave', function () { hov = -1; sync(); });
+      g.addEventListener('click', function () { select(i); });
+    });
     marks.forEach(function (m) {
       var i = +m.getAttribute('data-i');
-      m.addEventListener('click', function () { buzz(8); showInfo(i); });
-      m.addEventListener('mouseenter', function () { showInfo(i); });
-      m.addEventListener('focus', function () { showInfo(i); });
-      m.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); buzz(8); showInfo(i); } });
+      m.addEventListener('mouseenter', function () { hov = i; sync(); });
+      m.addEventListener('mouseleave', function () { hov = -1; sync(); });
+      m.addEventListener('focus', function () { hov = i; sync(); });
+      m.addEventListener('blur', function () { hov = -1; sync(); });
+      m.addEventListener('click', function () { select(i); });
+      m.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(i); } });
     });
-    deps.forEach(function (dp) {
-      var i = +dp.getAttribute('data-i');
-      dp.addEventListener('click', function () { buzz(8); showInfo(i); });
-      dp.addEventListener('mouseenter', function () { showInfo(i); });
+    info.addEventListener('click', function (e) {
+      var go = e.target.closest ? e.target.closest('.go') : null;
+      if (!go) { return; }
+      var cd = card(+go.getAttribute('data-i'));
+      buzz(8);
+      if (cd.hidden && filterChips.todas) { filterChips.todas.click(); }
+      document.querySelectorAll('.region.hl').forEach(function (r) { r.classList.remove('hl'); });
+      cd.classList.add('hl');
+      cd.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(function () { cd.classList.remove('hl'); }, 2200);
     });
     function pickTag(g) {
-      var tag = g.getAttribute('data-tag');
-      var c = filterChips[tag];
-      if (!c) { return; }
-      if (c.getAttribute('aria-pressed') === 'true' && filterChips.todas) { filterChips.todas.click(); } else { c.click(); }
+      var ch = filterChips[g.getAttribute('data-tag')];
+      if (!ch) { return; }
+      if (ch.getAttribute('aria-pressed') === 'true' && filterChips.todas) { filterChips.todas.click(); } else { ch.click(); }
     }
     segs.forEach(function (g) {
       g.addEventListener('click', function () { pickTag(g); });
       g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pickTag(g); } });
     });
+    resetBtn.addEventListener('click', function () {
+      buzz(8);
+      sel = -1; hov = -1;
+      if (filterOn() && filterChips.todas) { filterChips.todas.click(); }
+      sync();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sel > -1) { sel = -1; sync(); } });
     document.querySelector('.filters').addEventListener('click', function () { sync(); });
     document.querySelectorAll('[data-set-lang]').forEach(function (b) { b.addEventListener('click', function () { setTimeout(sync, 0); }); });
     sync();
+    requestAnimationFrame(function () { requestAnimationFrame(function () { ex.classList.add('ready'); }); });
   })();
 
   /* Guía de molienda: visor de partículas */
