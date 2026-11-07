@@ -1,4 +1,4 @@
-# Lote Colombia
+# Lote Col
 
 Web estática sobre café colombiano de origen, en español e inglés. No necesita instalación ni compilación.
 
