@@ -207,8 +207,8 @@
     b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang'), true); });
   });
 
-  /* Barra inferior (móvil): marca la sección que se está viendo */
-  var tabLinks = document.querySelectorAll('.tabbar a');
+  /* Navegación de la cabecera: marca la sección que se está viendo */
+  var tabLinks = document.querySelectorAll('.top nav a');
   if ('IntersectionObserver' in window && tabLinks.length) {
     var ids = ['regiones', 'variedades', 'proceso', 'preparar'];
     var visible = {};

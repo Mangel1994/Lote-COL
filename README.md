@@ -6,7 +6,9 @@ Web estática sobre café colombiano de origen, en español e inglés. No necesi
 
 - `index.html`: contenido. Cada texto tiene dos versiones, `lang="es"` y `lang="en"`. Al editar un texto, cambia las dos.
 - `styles.css`: diseño. Los colores y las tipografías están en las variables del principio (`:root`).
+- `montana.webp`: ilustración de la portada. Los textos que la acompañan (altitudes y "Zona cafetera") son texto real del `index.html`, en español e inglés.
 - `main.js`: filtro de regiones, selector de idioma y calculadora de preparación (objeto `METHODS`).
+- `assets/montana.webp`: ilustración de la portada (imagen con fondo transparente). El eje de altitud y la etiqueta "Zona cafetera" son texto del propio `index.html`, no parte de la imagen, y cambian con el idioma.
 
 ## Probarla en tu ordenador
 
