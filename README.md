@@ -11,7 +11,16 @@ Web estática sobre café colombiano de origen, en español e inglés. No necesi
 - `*.woff` y `OFL-*.txt`: tipografías alojadas en el propio sitio (licencia SIL OFL 1.1, con sus textos de licencia). Así no se hace ninguna petición a Google y no hace falta aviso de cookies.
 - `og-image.jpg`: vista previa al compartir el enlace (WhatsApp, Telegram, redes). `favicon-32.png`, `apple-touch-icon.png`: iconos de la pestaña y del móvil. `robots.txt` y `sitemap.xml`: para buscadores.
 - `main.js`: filtro de regiones, selector de idioma y calculadora de preparación (objeto `METHODS`).
+- Mapa de regiones y rueda de sabores: su estilo está en el bloque final de `styles.css` ("Mapa y rueda"). Usa solo los neutros de la marca y el azul `--accent`; no añadas colores nuevos ahí.
 - `montana.webp`: ilustración de la portada (debe estar junto a `index.html`) (imagen con fondo transparente). El eje de altitud y la etiqueta "Zona cafetera" son texto del propio `index.html`, no parte de la imagen, y cambian con el idioma.
+
+## Calculadora (Preparar)
+
+- Ancho máximo de 900 px. Todos los botones y controles táctiles miden al menos 48 × 48 px.
+- Escritorio: la tarjeta de la receta se queda fija al lado mientras bajas por los controles y el paso a paso.
+- Móvil: cuando los controles están a la vista y la receta no, aparece abajo una barra con café, agua y ratio, y un botón «Ver receta».
+- Teclado: Tab recorre método → café → agua → ratio → restablecer → copiar → cronómetro. Flechas en los grupos de método y ratio. En los campos: ↑/↓ un paso, Mayús+↑/↓ o RePág/AvPág de 10 en 10, Intro confirma y Esc deshace.
+- «Restablecer valores» vuelve a la cantidad y el ratio por defecto del método elegido.
 
 ## Probarla en tu ordenador
 

@@ -74,18 +74,23 @@
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow"><span lang="es">Guía del café colombiano de origen</span><span lang="en">Guide to Colombian single-origin coffee</span></p>
-        <h1>
-          <span lang="es">Café de montaña, <em>lote por lote.</em></span>
-          <span lang="en">Mountain coffee, <em>lot by lot.</em></span>
-        </h1>
         <p class="hero-text">
-          <span lang="es">Colombia cultiva solo arábica, en laderas de los Andes y casi siempre en fincas familiares pequeñas. Aquí están las regiones, las variedades y el proceso que explican cada taza, con una calculadora para prepararla bien.</span>
-          <span lang="en">Colombia grows only arabica, on Andean slopes and almost always on small family farms. Here are the regions, varieties and processing steps behind every cup, plus a calculator to help you brew it well.</span>
+          <span lang="es">Detrás de cada taza hay una ladera, una variedad y un proceso. Descubre de dónde viene tu café y cómo sacarle todo su sabor en casa.</span>
+          <span lang="en">Behind every cup there is a mountainside, a variety and a process. Discover where your coffee comes from and how to bring out its full flavor at home.</span>
         </p>
+        <h1>
+          <span lang="es">De la montaña <em>a tu taza.</em></span>
+          <span lang="en">From the mountain <em>to your cup.</em></span>
+        </h1>
         <div class="hero-actions">
-          <a class="btn" href="#regiones"><span lang="es">Explorar regiones</span><span lang="en">Explore regions</span></a>
-          <a class="link-quiet" href="#preparar"><span lang="es">Calcular mi receta</span><span lang="en">Calculate my recipe</span></a>
+          <a class="btn" href="#preparar"><span lang="es">Calcular mi receta</span><span lang="en">Calculate my recipe</span></a>
+          <a class="link-quiet" href="#regiones"><span lang="es">Explorar regiones</span><span lang="en">Explore regions</span></a>
         </div>
+        <ul class="hero-stats">
+          <li><b>8</b><span lang="es">regiones</span><span lang="en">regions</span></li>
+          <li><b>7</b><span lang="es">variedades</span><span lang="en">varieties</span></li>
+          <li><b>6</b><span lang="es">métodos</span><span lang="en">brew methods</span></li>
+        </ul>
       </div>
       <figure class="profile">
         <svg viewBox="0 0 1536 693" role="img" data-label-es="Montaña con la zona cafetera entre 1.200 y 2.300 metros de altura, con cafetos en primer plano" data-label-en="Mountain with the coffee zone between 1,200 and 2,300 meters above sea level, with coffee plants in the foreground" aria-label="Montaña con la zona cafetera entre 1.200 y 2.300 metros de altura, con cafetos en primer plano">
@@ -136,6 +141,10 @@
     <div class="wrap">
       <p class="eyebrow"><span lang="es">Dónde se cultiva</span><span lang="en">Where it grows</span></p>
       <h2><span lang="es">Ocho regiones, ocho tazas</span><span lang="en">Eight regions, eight cups</span></h2>
+      <p class="lede intro">
+        <span lang="es">Colombia cultiva solo arábica, en laderas de los Andes y casi siempre en fincas familiares pequeñas.</span>
+        <span lang="en">Colombia grows only arabica, on Andean slopes and almost always on small family farms.</span>
+      </p>
       <p class="lede">
         <span lang="es">Cada barra muestra la altura típica de cultivo sobre una escala común de 800 a 2.400 m sobre el nivel del mar. A más altura el grano madura más despacio y suele dar más acidez y dulzor. Los valores son aproximados y cambian de finca en finca.</span>
         <span lang="en">Each bar shows the typical growing altitude on a shared scale from 800 to 2,400 m above sea level. At higher altitude the bean ripens more slowly and tends to give more acidity and sweetness. Values are approximate and vary from farm to farm.</span>
@@ -655,23 +664,33 @@
         </div>
 
         <div class="cgrid">
+          <div class="cleft">
           <div class="panel ctl">
             <div class="field">
               <label for="coffeeNum" id="coffeeLabel"><span lang="es">Café molido (g)</span><span lang="en">Ground coffee (g)</span></label>
-              <div class="num"><button type="button" class="st" data-t="coffeeNum" data-dir="-1" data-label-es="Menos café" data-label-en="Less coffee" aria-label="Menos café">−</button><input id="coffeeNum" type="number" inputmode="decimal" min="1" max="200" step="0.5" value="18.8"><button type="button" class="st" data-t="coffeeNum" data-dir="1" data-label-es="Más café" data-label-en="More coffee" aria-label="Más café">+</button></div>
+              <div class="num"><button type="button" class="st" tabindex="-1" data-t="coffeeNum" data-dir="-1" data-label-es="Menos café" data-label-en="Less coffee" aria-label="Menos café">−</button><input id="coffeeNum" type="number" inputmode="decimal" enterkeyhint="done" autocomplete="off" min="1" max="200" step="0.5" value="18.8" aria-describedby="kbdHint"><button type="button" class="st" tabindex="-1" data-t="coffeeNum" data-dir="1" data-label-es="Más café" data-label-en="More coffee" aria-label="Más café">+</button></div>
               <input id="coffeeRange" type="range" aria-labelledby="coffeeLabel">
             </div>
             <div class="field">
               <label for="amount" id="amountLabel">Agua (ml)</label>
-              <div class="num"><button type="button" class="st" data-t="amount" data-dir="-1" data-label-es="Menos agua" data-label-en="Less water" aria-label="Menos agua">−</button><input id="amount" type="number" inputmode="decimal" min="1" max="2000" step="5" value="300"><button type="button" class="st" data-t="amount" data-dir="1" data-label-es="Más agua" data-label-en="More water" aria-label="Más agua">+</button></div>
+              <div class="num"><button type="button" class="st" tabindex="-1" data-t="amount" data-dir="-1" data-label-es="Menos agua" data-label-en="Less water" aria-label="Menos agua">−</button><input id="amount" type="number" inputmode="numeric" pattern="[0-9]*" enterkeyhint="done" autocomplete="off" min="1" max="2000" step="5" value="300" aria-describedby="kbdHint"><button type="button" class="st" tabindex="-1" data-t="amount" data-dir="1" data-label-es="Más agua" data-label-en="More water" aria-label="Más agua">+</button></div>
               <input id="amountRange" type="range" aria-labelledby="amountLabel">
             </div>
             <p class="out-label ratio-label" id="ratioLabel"><span lang="es">Ratio sugerido</span><span lang="en">Suggested ratio</span></p>
             <div class="ratios" id="ratios" role="radiogroup" aria-labelledby="ratioLabel"></div>
             <p class="ctl-note"><span lang="es">Mueve el café y el agua se recalcula con el ratio elegido, y al revés.</span><span lang="en">Move the coffee and the water follows the chosen ratio, and the other way round.</span></p>
+            <p class="kbd-hint" id="kbdHint"><span lang="es">Teclado: <kbd>↑</kbd> <kbd>↓</kbd> ajustan el valor, con <kbd>Mayús</kbd> de 10 en 10. <kbd>Esc</kbd> deshace lo escrito.</span><span lang="en">Keyboard: <kbd>↑</kbd> <kbd>↓</kbd> adjust the value, with <kbd>Shift</kbd> in steps of 10. <kbd>Esc</kbd> undoes your typing.</span></p>
+            <button type="button" class="ctl-reset" id="calcReset"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg><span lang="es">Restablecer valores</span><span lang="en">Reset values</span></button>
           </div>
 
-          <div class="panel out card">
+          <div class="panel howto" id="howto" hidden>
+            <p class="out-label"><span lang="es">Paso a paso</span><span lang="en">Step by step</span></p>
+            <ol class="how" id="outSteps"></ol>
+            <p class="how-note" id="outNote"></p>
+          </div>
+          </div>
+
+          <div class="panel out card" id="recipe" tabindex="-1">
             <div class="rhero">
               <div>
                 <p class="out-label"><span lang="es">Receta resultante</span><span lang="en">Your recipe</span></p>
@@ -711,13 +730,13 @@
               <ol class="t-list" id="tList"></ol>
             </div>
 
-            <div class="howto" id="howto" hidden>
-              <p class="out-label"><span lang="es">Paso a paso</span><span lang="en">Step by step</span></p>
-              <ol class="how" id="outSteps"></ol>
-              <p class="how-note" id="outNote"></p>
-            </div>
           </div>
         </div>
+      </div>
+
+      <div class="cbar" id="cbar" role="region" data-label-es="Resumen de la receta" data-label-en="Recipe summary" aria-label="Resumen de la receta">
+        <p class="cbar-sum"><b id="cbCoffee">18,8 g</b> <span class="cbar-u"><span lang="es">de café</span><span lang="en">coffee</span></span><span class="cbar-sep" aria-hidden="true">·</span><span id="cbWater">300 ml</span><span class="cbar-sep" aria-hidden="true">·</span><span id="cbRatio">1:16</span></p>
+        <a class="cbar-go" href="#recipe"><span lang="es">Ver receta</span><span lang="en">See recipe</span></a>
       </div>
 
       <div class="grind" id="grind">

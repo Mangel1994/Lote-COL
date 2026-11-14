@@ -264,6 +264,23 @@
     chips.forEach(function (c) { filterChips[c.getAttribute('data-tag')] = c; });
     var sel = -1, hov = -1, shownKey = '', altKey = -2;
 
+    /* Píldora detrás del nombre de la región: el CSS decide si se ve */
+    marks.forEach(function (m) {
+      var t = m.querySelector('text');
+      var r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      r.setAttribute('class', 'tip');
+      m.insertBefore(r, t);
+    });
+    function sizeTips() {
+      marks.forEach(function (m) {
+        var t = m.querySelector('text'), r = m.querySelector('.tip'), b;
+        try { b = t.getBBox(); } catch (e) { return; }
+        var h = b.height + 10;
+        r.setAttribute('x', b.x - 9); r.setAttribute('y', b.y - 5);
+        r.setAttribute('width', b.width + 18); r.setAttribute('height', h); r.setAttribute('rx', h / 2);
+      });
+    }
+    marks.forEach(function (m) { m.addEventListener('mouseenter', function () { requestAnimationFrame(sizeTips); }); });
     function card(i) { return document.getElementById('reg-' + i); }
     function label(el) {
       var t = el.querySelector('text');
@@ -324,6 +341,7 @@
       resetBtn.hidden = !(fOn || sel > -1);
       renderInfo(c);
       renderAlt(c);
+      sizeTips();
     }
     function select(i) {
       buzz(8);
@@ -585,14 +603,32 @@
   var ratiosBox = document.getElementById('ratios');
 
   /* Memoria local: método, cantidad y ratio de cada método (solo en este navegador) */
+  /* Sube o baja un campo numérico: dir = 1 o -1, mult = 1 o 10 */
+  function stepInput(inp, dir, mult) {
+    var st = parseFloat(inp.step) || 1, v = parseFloat(inp.value) || 0;
+    var nv = Math.round((v + dir * st * (mult || 1)) / st) * st;
+    inp.value = Math.min(parseFloat(inp.max) || nv, Math.max(parseFloat(inp.min) || 0, Math.round(nv * 10) / 10));
+    inp.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+  /* Botones − y +: un toque cambia un paso; si se mantienen pulsados, repiten */
   document.querySelectorAll('.num .st').forEach(function (b) {
+    var inp = document.getElementById(b.getAttribute('data-t'));
+    var dir = +b.getAttribute('data-dir');
+    var holdT = 0, repT = 0, repeated = false;
+    function stop() { clearTimeout(holdT); clearInterval(repT); }
+    b.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0) { return; }
+      repeated = false; stop();
+      holdT = setTimeout(function () {
+        repeated = true;
+        repT = setInterval(function () { stepInput(inp, dir, 1); }, 90);
+      }, 450);
+    });
+    ['pointerup', 'pointerleave', 'pointercancel', 'blur'].forEach(function (ev) { b.addEventListener(ev, stop); });
     b.addEventListener('click', function () {
-      var inp = document.getElementById(b.getAttribute('data-t'));
-      var st = parseFloat(inp.step) || 1, v = parseFloat(inp.value) || 0;
-      var nv = Math.round((v + (+b.getAttribute('data-dir')) * st) / st) * st;
-      inp.value = Math.min(parseFloat(inp.max) || nv, Math.max(parseFloat(inp.min) || 0, Math.round(nv * 10) / 10));
+      if (repeated) { repeated = false; return; }
       buzz(8);
-      inp.dispatchEvent(new Event('input', { bubbles: true }));
+      stepInput(inp, dir, 1);
     });
   });
   var STORE = 'lote-calc';
@@ -857,6 +893,9 @@
     setText('outWater', ok ? fmt.format(state.water) + ' ml' : '—');
     setText('outCups', cupsText);
     setText('outRatio', realRatio === null ? '—' : '1:' + fmt.format(realRatio));
+    setText('cbCoffee', ok ? fmt.format(state.coffee) + ' g' : '—');
+    setText('cbWater', ok ? fmt.format(state.water) + ' ml' : '—');
+    setText('cbRatio', realRatio === null ? '—' : '1:' + fmt.format(realRatio));
     setText('outTemp', pick(m.temp));
     setText('outTime', pick(m.time));
     setText('outGrind', pick(m.grind));
@@ -967,6 +1006,64 @@
     if (isFinite(v) && v > 0) { setCoffee(v); } else { state.coffee = NaN; }
     afterEdit();
   });
+  /* Teclado en los campos numéricos:
+     ↑/↓ suben o bajan un paso (nativo), Mayús+↑/↓ y RePág/AvPág de 10 en 10,
+     Intro confirma y Esc deshace lo escrito desde que se entró en el campo */
+  [amount, coffeeNum].forEach(function (inp) {
+    var before = null;
+    inp.addEventListener('focus', function () { before = { water: state.water, coffee: state.coffee }; });
+    inp.addEventListener('keydown', function (e) {
+      var k = e.key;
+      if ((k === 'ArrowUp' || k === 'ArrowDown') && e.shiftKey) { e.preventDefault(); stepInput(inp, k === 'ArrowUp' ? 1 : -1, 10); }
+      else if (k === 'PageUp' || k === 'PageDown') { e.preventDefault(); stepInput(inp, k === 'PageUp' ? 1 : -1, 10); }
+      else if (k === 'Enter') { e.preventDefault(); inp.blur(); }
+      else if (k === 'Escape' && before) {
+        e.preventDefault();
+        state.water = before.water; state.coffee = before.coffee;
+        inp.value = inp === amount ? state.water : state.coffee;
+        afterEdit();
+      }
+    });
+  });
+
+  /* Restablecer: vuelve a la cantidad y el ratio por defecto del método elegido */
+  document.getElementById('calcReset').addEventListener('click', function () {
+    delete prefs.amounts[state.key];
+    delete prefs.ratios[state.key];
+    loadMethod(state.key);
+    resetTimer(true);
+    renderRatios();
+    persist();
+    buzz(12);
+    renderCalc();
+    showToast(lang === 'en' ? 'Values reset' : 'Valores restablecidos');
+  });
+
+  /* Móvil: barra de resumen fija abajo mientras los controles están a la vista
+     y la tarjeta de la receta no */
+  (function () {
+    var bar = document.getElementById('cbar');
+    var ctl = document.querySelector('.calc2 .ctl');
+    var top = document.querySelector('.calc2 .card .rhero');
+    if (!bar || !ctl || !top || !('IntersectionObserver' in window)) { return; }
+    var narrow = window.matchMedia('(max-width: 52rem)');
+    var ctlIn = false, topIn = false;
+    function upd() {
+      var on = narrow.matches && ctlIn && !topIn;
+      bar.classList.toggle('show', on);
+      document.body.classList.toggle('cbar-on', on);
+    }
+    new IntersectionObserver(function (es) { es.forEach(function (e) { ctlIn = e.isIntersecting; }); upd(); }, { rootMargin: '0px 0px -30% 0px' }).observe(ctl);
+    new IntersectionObserver(function (es) { es.forEach(function (e) { topIn = e.isIntersecting; }); upd(); }).observe(top);
+    if (narrow.addEventListener) { narrow.addEventListener('change', upd); }
+    bar.querySelector('.cbar-go').addEventListener('click', function (e) {
+      e.preventDefault();
+      var card = document.getElementById('recipe');
+      card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      card.focus({ preventScroll: true });
+    });
+  })();
+
   [amount, coffeeNum].forEach(function (inp) {
     inp.addEventListener('blur', function () {
       if (!(state.water > 0) || !(state.coffee > 0)) { loadMethod(state.key); renderCalc(); }
